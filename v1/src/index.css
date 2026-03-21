@@ -1,113 +1,109 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@theme {
+	--color-background: #0c0c0c; /* main dark */
+	--color-foreground: #f3f4f4; /* main light and main text*/
+	--color-muted: #bbbbbb; /* secondary text */
+	--color-accent: #191970; /* brand/additions */
+	--color-night-start: #003153;
+	--color-night-end: #1b1b1b;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+	/* supporting palette */
+	--color-surface: #121216;
+	--color-surface-2: #17171c;
+	--color-border: #252530;
+	--color-ring: #4a55d6;
+	--color-success: #22c55e;
+	--color-warning: #f59e0b;
+	--color-danger: #ef4444;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+	--radius-sm: 0.5rem;
+	--radius-md: 0.75rem;
+	--radius-lg: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+@layer base {
+	:root {
+		color-scheme: dark;
+	}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
+	* {
+		@apply border-border;
+	}
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
+	html,
+	body,
+	#root {
+		min-height: 100%;
+	}
 
-body {
-  margin: 0;
-}
+	body {
+		@apply text-foreground antialiased;
+		font-family: 'Plus Jakarta Sans', sans-serif; 
+		letter-spacing: 0.01em;
+		margin: 0;
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
+		background-color: var(--color-night-start);
+		background-image: linear-gradient(315deg, var(--color-night-start) 0%, var(--color-night-end) 74%);
+		background-attachment: fixed;
+	}
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-foreground tracking-tight;
+		line-height: 1.15;
+	}
+
+	p,
+	li,
+	span {
+		@apply text-muted;
+	}
+
+	a {
+		@apply text-foreground/90 transition-colors;
+		text-underline-offset: 4px;
+	}
+	a:hover {
+		@apply text-foreground;
+	}
+
+	:focus-visible {
+		outline: 2px solid theme(--color-ring);
+		outline-offset: 2px;
+	}
+
+	::selection {
+		background: color-mix(in oklab, theme(--color-accent) 45%, transparent);
+		color: theme(--color-foreground);
+	}
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
+@layer utilities {
+	.bg-grid-subtle {
+		background-image:
+			linear-gradient(
+				to right,
+				color-mix(in oklab, theme(--color-border) 40%, transparent) 1px,
+				transparent 1px
+			),
+			linear-gradient(
+				to bottom,
+				color-mix(in oklab, theme(--color-border) 40%, transparent) 1px,
+				transparent 1px
+			);
+		background-size: 32px 32px;
+	}
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+	.surface {
+		@apply bg-surface border border-border rounded-lg;
+	}
+	.surface-2 {
+		@apply bg-surface-2 border border-border rounded-lg;
+	}
 }
