@@ -11,7 +11,7 @@ const AppShell = () => {
 	return (
 		<div className="min-h-screen bg-background text-foreground">
 			<a
-				href="#main-content"
+				href="#main-content" 
 				className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-surface focus:px-3 focus:py-2"
 			>
 				Skip to main content
@@ -19,7 +19,7 @@ const AppShell = () => {
 
 			<Header />
 
-			<main id="main-content">
+			<main id="main-content" className="pt-24 md:pt-28">
 				{sectionRoutes.map(({ id, Component }) => (
 					<SectionContainer key={id} id={id}>
 						<Component />

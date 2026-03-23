@@ -5,7 +5,7 @@ interface SectionContainerProps extends PropsWithChildren {
 	className?: string;
 }
 
-// Reusable section wrapper for consistent max-width, spacing, and anchors.
+// reusable section wrapper for consistent max-width, spacing, and anchors
 const SectionContainer = ({ id, className = "", children }: SectionContainerProps) => {
 	return (
 		<section
