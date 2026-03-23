@@ -19,7 +19,7 @@ const AppShell = () => {
 
 			<Header />
 
-			<main id="main-content" className="pt-24 md:pt-28">
+			<main id="main-content" className="pt-20 md:pt-24 lg:pt-28">
 				{sectionRoutes.map(({ id, Component }) => (
 					<SectionContainer key={id} id={id}>
 						<Component />
