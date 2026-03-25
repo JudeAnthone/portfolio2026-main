@@ -14,7 +14,6 @@ export interface AboutData {
 }
 
 export const aboutData: AboutData = {
-    // CHANGE START: polished about copy aligned with your current portfolio direction
     tagline: "/ 01 About Me",
     intro: "Computer Science student focused on building modern, scalable, and user-centered web products.",
     description:
@@ -33,5 +32,4 @@ export const aboutData: AboutData = {
         { label: "Current Goal", value: "Production-ready portfolio and client projects" },
         { label: "Strength", value: "Frontend architecture with clean UX execution" },
     ],
-    // CHANGE END
 };
