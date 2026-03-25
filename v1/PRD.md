@@ -10,6 +10,7 @@ im aiming to have a final output of modern and clean portfolio.
 
 About, Skills, Projects, Socials (LinkedIn, Instagram, facebook) 
 
+(added some files that are not in here)
 v1/
 ├── .gitignore
 ├── eslint.config.js
