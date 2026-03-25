@@ -2,7 +2,6 @@ import React from "react";
 import { aboutData } from "../../data/about";
 
 const About = () => {
-	// Defensive check for future dynamic data usage.
 	if (!aboutData) {
 		return (
 			<article aria-labelledby="about-title" className="space-y-3">
