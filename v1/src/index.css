@@ -8,7 +8,6 @@
     --color-night-start: #003153;
     --color-night-end: #1b1b1b;
 
-    /* supporting palette */
     --color-surface: #121216;
     --color-surface-2: #17171c;
     --color-border: #252530;
@@ -31,6 +30,10 @@
         @apply border-border;
     }
 
+	html {
+		scroll-behavior: smooth;
+	}
+	
     html,
     body,
     #root {

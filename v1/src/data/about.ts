@@ -1,34 +1,37 @@
 export interface AboutMetric {
-	label: string;
-	value: string;
+    label: string;
+    value: string;
 }
 
 export interface AboutData {
-	tagline: string;
-	intro: string;
-	description: string;
-	location: string;
-	availability: string;
-	stackHighlights: string[];
-	metrics: AboutMetric[];
+    tagline: string;
+    intro: string;
+    description: string;
+    location: string;
+    availability: string;
+    stackHighlights: string[];
+    metrics: AboutMetric[];
 }
 
 export const aboutData: AboutData = {
-	tagline: "/ 01 About Me",
-	intro: "Computer Science student focused on building modern, scalable full-stack products.",
-	description:
-		"I enjoy turning ideas into clean user experiences using React + TypeScript on the frontend and Node.js + PostgreSQL on the backend. I care about performance, accessibility, and maintainable architecture.",
-	location: "Philippines",
-	availability: "Open for internships and freelance opportunities",
-	stackHighlights: [
-		"React + TypeScript",
-		"Node + Express",
-		"PostgreSQL",
-		"UI/UX-minded build process",
-	],
-	metrics: [
-		{ label: "Primary Focus", value: "Full-Stack Web Development" },
-		{ label: "Frontend", value: "React + Tailwind + UI Libraries" },
-		{ label: "Backend", value: "Node.js, Express, PostgreSQL" },
-	],
+    // CHANGE START: polished about copy aligned with your current portfolio direction
+    tagline: "/ 01 About Me",
+    intro: "Computer Science student focused on building modern, scalable, and user-centered web products.",
+    description:
+        "I build clean digital experiences with React + TypeScript on the frontend and Node.js + PostgreSQL on the backend. My approach combines maintainable code, solid UX principles, and practical delivery for real-world use.",
+    location: "Philippines",
+    availability: "Open for internships, freelance work, and collaboration opportunities",
+    stackHighlights: [
+        "React + TypeScript",
+        "Tailwind CSS + UI Libraries",
+        "Node.js + Express",
+        "PostgreSQL + REST APIs",
+        "Performance + Accessibility Focus",
+    ],
+    metrics: [
+        { label: "Primary Focus", value: "Full-Stack Web Development" },
+        { label: "Current Goal", value: "Production-ready portfolio and client projects" },
+        { label: "Strength", value: "Frontend architecture with clean UX execution" },
+    ],
+    // CHANGE END
 };

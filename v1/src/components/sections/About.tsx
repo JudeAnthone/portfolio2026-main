@@ -1,4 +1,3 @@
-import React from "react";
 import { aboutData } from "../../data/about";
 
 const About = () => {
@@ -17,37 +16,44 @@ const About = () => {
 	const hasMetrics = aboutData.metrics.length > 0;
 
 	return (
-		<article aria-labelledby="about-title" className="space-y-5 md:space-y-7">
+		<article aria-labelledby="about-title" className="space-y-6 md:space-y-8">
 			<header className="space-y-3">
 				<p className="inline-flex rounded-full border border-border bg-surface/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] text-muted">
 					{aboutData.tagline}
 				</p>
 
-				<h2
-					id="about-title"
-					className="text-2xl font-semibold leading-tight text-foreground md:text-4xl"
-				>
-					Building modern products with clean code and strong UX foundations.
-				</h2>
+				<div className="space-y-1">
+					<h2
+						id="about-title"
+						className="text-3xl font-semibold uppercase leading-[1.02] tracking-tight text-foreground md:text-5xl"
+					>
+						Crafting Digital
+					</h2>
+					<p className="bg-night-gradient bg-clip-text text-3xl font-semibold uppercase leading-[1.02] tracking-tight text-transparent md:text-5xl">
+						Experiences
+					</p>
+				</div>
+
+				<p className="max-w-2xl text-sm leading-relaxed text-muted md:text-base">
+					{aboutData.intro}
+				</p>
 			</header>
 
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
-				{/* Left content block */}
-				<section className="rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-7 md:p-6">
-					<p className="text-base font-medium text-foreground md:text-lg">
-						{aboutData.intro}
-					</p>
+				<section className="rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-8 md:p-6">
+					<h3 className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
+						Profile Summary
+					</h3>
 
-					<p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
+					<p className="mt-3 text-base leading-relaxed text-foreground md:text-lg">
 						{aboutData.description}
 					</p>
 
-					<div className="mt-4 flex flex-col gap-2 text-sm text-muted md:flex-row md:items-center md:gap-4">
-						<span>
+					<div className="mt-5 flex flex-wrap gap-2 text-sm">
+						<span className="rounded-full border border-border bg-surface-2 px-3 py-1.5 text-muted">
 							<span className="text-foreground">Location:</span> {aboutData.location}
 						</span>
-						<span className="hidden md:inline text-border">•</span>
-						<span>
+						<span className="rounded-full border border-border bg-surface-2 px-3 py-1.5 text-muted">
 							<span className="text-foreground">Status:</span>{" "}
 							{aboutData.availability}
 						</span>
@@ -70,15 +76,17 @@ const About = () => {
 					)}
 				</section>
 
-				{/* Right metrics block */}
-				<aside className="space-y-3 md:col-span-5">
+				<aside className="space-y-3 md:col-span-4">
 					{hasMetrics ? (
-						aboutData.metrics.map((metric) => (
+						aboutData.metrics.map((metric, index) => (
 							<div
 								key={metric.label}
 								className="rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm md:p-5"
 							>
-								<p className="text-xs uppercase tracking-[0.12em] text-muted">
+								<p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+									0{index + 1}
+								</p>
+								<p className="mt-2 text-xs uppercase tracking-[0.12em] text-muted">
 									{metric.label}
 								</p>
 								<p className="mt-1 text-sm font-semibold text-foreground md:text-base">
@@ -87,7 +95,7 @@ const About = () => {
 							</div>
 						))
 					) : (
-						<div className="rounded-2xl border border-border bg-surface/70 p-4">
+						<div className="rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm">
 							<p className="text-sm text-muted">No metrics available yet.</p>
 						</div>
 					)}
