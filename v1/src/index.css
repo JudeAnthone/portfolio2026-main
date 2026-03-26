@@ -1,5 +1,10 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
 @theme {
     --color-background: #0c0c0c; /* main dark */
     --color-foreground: #f3f4f4; /* main light and main text*/
@@ -27,13 +32,14 @@
     }
 
     * {
-        @apply border-border;
+        @apply border-border outline-ring/50;
     }
 
 	html {
 		scroll-behavior: smooth;
+    @apply font-sans;
 	}
-	
+
     html,
     body,
     #root {
@@ -41,7 +47,7 @@
     }
 
     body {
-        @apply text-foreground antialiased;
+        @apply antialiased bg-background text-foreground;
         font-family: "Plus Jakarta Sans", sans-serif;
         letter-spacing: 0.01em;
         margin: 0;
@@ -126,7 +132,7 @@
         );
         background-attachment: scroll;
     }
-	
+
 	.card-image-overlay {
 		background: linear-gradient(
             to top,
@@ -135,7 +141,7 @@
             transparent 78%
         );
 	}
-	
+
 	.card-detail-chip {
         background-color: color-mix(in oklab, var(--color-surface) 55%, transparent 45%);
         border: 1px solid color-mix(in oklab, var(--color-border) 70%, white 30%);
