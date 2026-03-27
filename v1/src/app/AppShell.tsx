@@ -8,7 +8,6 @@ import { sectionRoutes } from "./routes";
 const AppShell = () => {
     return (
         <div className="relative isolate min-h-screen bg-background text-foreground">
-            {/* CHANGE START: pure background layer only */}
             <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 opacity-70">
                 <DotGrid
                     className="h-full w-full"
@@ -23,9 +22,7 @@ const AppShell = () => {
                     returnDuration={1.5}
                 />
             </div>
-            {/* CHANGE END */}
 
-            {/* CHANGE START: keep all content above background */}
             <div className="relative z-10">
                 <a
                     href="#main-content"
@@ -53,7 +50,6 @@ const AppShell = () => {
                     </div>
                 </main>
             </div>
-            {/* CHANGE END */}
         </div>
     );
 };

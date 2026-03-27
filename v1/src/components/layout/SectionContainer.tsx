@@ -39,7 +39,7 @@ export const SectionHeader = ({ id, tag, lines, description }: SectionHeaderProp
 							className={[
 								"block text-3xl font-semibold uppercase leading-[1.02] tracking-tight md:text-5xl",
 								isLast
-									? "bg-night-gradient bg-clip-text text-transparent"
+									? "bg-night-gradient bg-clip-text text-[#555555]"
 									: "text-foreground",
 							].join(" ")}
 						>

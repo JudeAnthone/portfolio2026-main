@@ -20,7 +20,7 @@ const About = () => {
 		<article aria-labelledby="about-title" className="space-y-6 md:space-y-8">
 			<SectionHeader
 				id="about-title"
-				tag="/01 Intro haha"
+				tag="/01 Intro"
 				lines={["Crafting", "Digital", "Experiences."]}
 				description={aboutData.intro}
 			/>
