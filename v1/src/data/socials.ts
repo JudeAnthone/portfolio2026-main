@@ -1,4 +1,4 @@
-export type SocialPlatform = "LinkedIn" | "Instagram" | "Facebook";
+export type SocialPlatform = "LinkedIn" | "Github" |"Instagram" | "Facebook";
 
 export interface SocialLink {
 	platform: SocialPlatform;
@@ -25,5 +25,11 @@ export const socialsData: ReadonlyArray<SocialLink> = [
 		handle: "Jude Anthone Duarte",
 		url: "https://www.facebook.com/jude.anthone.duarte.2024",
 		description: "Community connections and updates.",
+	},
+	{
+	platform: "Github",
+	handle: "Jude Anthone",
+	url: "https://github.com/JudeAnthone",
+	description: "pushin' and pullin'"
 	},
 ];

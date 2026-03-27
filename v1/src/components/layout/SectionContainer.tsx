@@ -15,7 +15,13 @@ const SectionContainer = ({ id, className = "", children }: SectionContainerProp
 	return (
 		<section
 			id={id}
-			className={`scroll-mt-24 border-b border-border py-16 md:py-24 ${className}`}
+			className={[
+				"scroll-mt-24 border-b border-border",
+				"py-10 md:py-14",
+				"first:pt-4 md:first:pt-6",
+				"last:border-b-0 last:pb-8 md:last:pb-10",
+				className,
+			].join(" ")}
 		>
 			<div className="mx-auto w-full max-w-6xl px-4 md:px-8">{children}</div>
 		</section>

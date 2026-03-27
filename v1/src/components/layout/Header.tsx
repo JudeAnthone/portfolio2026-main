@@ -32,7 +32,7 @@ const Header = () => {
 			<div className="mx-auto w-full max-w-7xl px-3 md:px-6">
 				<nav
 					aria-label="Primary navigation"
-					className="mx-auto w-full max-w-md rounded-full border border-border bg-surface/70 px-2 py-2 backdrop-blur-xl shadow-lg shadow-black/30 md:max-w-xl md:px-3"
+					className="mx-auto w-full max-w-md rounded-full border border-border bg-surface/70 px-2 py-2 backdrop-blur-sm shadow-lg shadow-black/30 md:max-w-xl md:px-3"
 				>
 					<ul className="flex items-center justify-start gap-1 overflow-x-auto whitespace-nowrap md:justify-center md:gap-2">
 						{sectionRoutes.map((route) => {

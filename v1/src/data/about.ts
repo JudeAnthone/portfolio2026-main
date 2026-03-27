@@ -17,7 +17,7 @@ export const aboutData: AboutData = {
 	tagline: "/ 01 About Me",
 	intro: "3rd Year Computer Science student focused on full-stack development and building practical, real-world applications.",
 	description:
-		"I build full-stack web applications using React, Node.js, and PostgreSQL, focusing on clean UI and structured backend systems. I’m expanding into DevOps (Docker, CI/CD) and exploring AI/ML to integrate data-driven features, with a strong interest in SaaS and dashboard-driven applications.",
+		"I build full-stack web applications using React, TypeScript, Node.js, and PostgreSQL, focusing on clean UI and structured backend systems. I’m expanding into DevOps (Docker, CI/CD) and exploring AI/ML to integrate data-driven features, with a strong interest in SaaS and dashboard-driven applications.",
 	location: "Philippines",
 	availability: "Open for internships, freelance projects, and collaboration opportunities",
 	stackHighlights: [

@@ -41,9 +41,9 @@ const StickyProfileCard = () => {
 				<div className="rounded-2xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">
 					<div className="group relative overflow-hidden rounded-2xl bg-card-image-gradient">
 						<img
-							src="/brand/card-img2.png"
+							src="/brand/card-img5.jpg"
 							alt="Profile artwork"
-							className="mx-auto h-56 w-full object-cover transition duration-500 ease-out group-hover:brightness-75 sm:h-64"
+							className="mx-auto h-64 w-full object-cover object-top transition duration-500 ease-out group-hover:brightness-75 sm:h-72"
 						/>
 
 						<div className="card-image-overlay pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -73,8 +73,8 @@ const StickyProfileCard = () => {
 						Jude Duarte
 					</h2>
 					<p className="mx-auto max-w-[26ch] text-center text-sm font-normal leading-relaxed text-muted sm:text-base">
-						A Software Engineer who builds modern, polished, and user-focused digital
-						products.
+						A Computer Science student building modern, polished, and user-focused web
+						applications.
 					</p>
 				</div>
 
