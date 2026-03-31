@@ -13,3 +13,4 @@ Code Quality Standards that you must follow for the frontend and admin-frontend,
 - Accessibility: Use semantic HTML, keyboard navigation, and ARIA attributes where necessary.
 - I need you to state file names/folder on every file, code changes, and folders. so that i know what file im working on. 
 - We will follow the "Mobile First Approach" kindly follow the patter that is already in some code files. 
+- test push
