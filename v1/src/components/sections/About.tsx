@@ -63,7 +63,7 @@ const About = () => {
 					lines={["Crafting", "Digital", "Experiences."]}
 					description={aboutData.intro}
 				/>
-			</motion.div>
+			</motion.div> 
 
 
 			{/* main about section */}
