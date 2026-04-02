@@ -29,8 +29,17 @@ export const aboutData: AboutData = {
 		"Machine Learning & AI (Fundamentals)",
 	],
 	metrics: [
-		{ label: "Primary Focus", value: "Full-Stack Web Development" },
-		{ label: "Current Goal", value: "Building production-ready and scalable projects" },
-		{ label: "Interests", value: "SaaS Platforms & Dashboard Systems" },
+		{
+			label: "Primary Focus",
+			value: "Full-Stack Web Development, Data Science, and Data Analytics",
+		},
+		{
+			label: "Current Goal",
+			value: "Building production-ready and scalable projects",
+		},
+		{
+			label: "Interests",
+			value: "SaaS Platforms, Dashboard Systems, and Data-Driven Solutions",
+		},
 	],
 };
