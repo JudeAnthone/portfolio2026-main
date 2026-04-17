@@ -93,7 +93,6 @@ const skillLogoMap: Record<string, SkillLogoMeta> = {
 	"CI/CD": { icon: SiGithubactions, color: "#2088FF" },
 };
 
-// [CHANGE-SKILLS-MOTION-01] Subtle reveal for section and cards.
 const containerVariants: Variants = {
 	hidden: { opacity: 0 },
 	show: {
@@ -162,10 +161,10 @@ const Skills = () => {
 					<motion.div
 						key={category.key}
 						variants={itemVariants}
-						className="rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm md:p-5"
+						className="rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:p-5"
 					>
 						<div className="mb-3 flex items-center gap-2">
-							<span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface-2 text-lg text-foreground">
+							<span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-surface-2 text-lg text-foreground">
 								{getCategoryIcon(category.key)}
 							</span>
 							<h3 className="text-base font-semibold text-foreground md:text-lg">

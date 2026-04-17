@@ -35,7 +35,7 @@ const StickyProfileCard = () => {
 	return (
 		<article
 			aria-label="Profile card"
-			className="card-float-in relative mx-auto w-full max-w-sm overflow-hidden rounded-[28px] border border-white/20 bg-white/10 p-5 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] md:p-6"
+			className="card-float-in relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] md:p-6"
 		>
 			<div className="relative z-10 space-y-5">
 				<div className="rounded-2xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">

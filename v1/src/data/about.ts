@@ -33,10 +33,7 @@ export const aboutData: AboutData = {
 			label: "Primary Focus",
 			value: "Full-Stack Web Development, Data Science, and Data Analytics",
 		},
-		{
-			label: "Current Goal",
-			value: "Building production-ready and scalable projects",
-		},
+
 		{
 			label: "Interests",
 			value: "SaaS Platforms, Dashboard Systems, and Data-Driven Solutions",

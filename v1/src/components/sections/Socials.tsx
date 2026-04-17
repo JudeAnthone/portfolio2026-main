@@ -96,7 +96,7 @@ const Socials = () => {
 
 			<motion.section
 				variants={itemVariants}
-				className="relative overflow-hidden rounded-2xl border border-border bg-night-gradient p-4 md:p-5"
+				className="relative overflow-hidden rounded-md border border-border bg-night-gradient p-4 md:p-5"
 			>
 				<div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-foreground/10 blur-2xl" />
 				<div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -107,7 +107,7 @@ const Socials = () => {
 						href={socialsData[0]?.url ?? "#"}
 						target="_blank"
 						rel="noreferrer"
-						className="inline-flex w-fit items-center gap-1 rounded-lg border border-border bg-surface/70 px-3 py-2 text-xs font-medium text-foreground hover:bg-surface md:text-sm"
+						className="inline-flex w-fit items-center gap-1 rounded-md border border-border bg-surface/70 px-3 py-2 text-xs font-medium text-foreground hover:bg-surface md:text-sm"
 					>
 						Start a conversation
 						<OpenInNewRoundedIcon className="text-base" />
@@ -127,7 +127,7 @@ const Socials = () => {
 							key={item.platform}
 							variants={itemVariants}
 							whileHover={{ y: -3 }}
-							className="group relative overflow-hidden rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm md:p-5"
+							className="group relative overflow-hidden rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:p-5"
 						>
 							<div
 								aria-hidden="true"
@@ -163,7 +163,7 @@ const Socials = () => {
 											target="_blank"
 											rel="noreferrer"
 											aria-label={"Open " + meta.label}
-											className="inline-flex items-center gap-1 rounded-lg border border-border bg-surface-2 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-surface md:text-sm"
+											className="inline-flex items-center gap-1 rounded-md border border-border bg-surface-2 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-surface md:text-sm"
 										>
 											Open {meta.label}
 											<OpenInNewRoundedIcon className="text-base" />
