@@ -1,30 +1,8 @@
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import { projectsData } from "../../data/project";
 import ProjectCard from "../ui/ProjectCard";
 import { SectionHeader } from "../layout/SectionContainer";
-
-const containerVariants: Variants = {
-	hidden: { opacity: 0 },
-	show: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.08,
-			delayChildren: 0.05,
-		},
-	},
-};
-
-const itemVariants: Variants = {
-	hidden: { opacity: 0, y: 12 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: [0.22, 1, 0.36, 1],
-		},
-	},
-};
+import { containerVariants, itemVariants } from "../../lib/animations";
 
 const Projects = () => {
 	if (!projectsData.length) {

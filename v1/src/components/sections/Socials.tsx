@@ -5,9 +5,10 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import { FaGithub } from "react-icons/fa";
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import { socialsData, type SocialPlatform } from "../../data/socials";
 import { SectionHeader } from "../layout/SectionContainer";
+import { containerVariants, itemVariants } from "../../lib/animations";
 
 interface SocialMeta {
 	label: string;
@@ -35,29 +36,6 @@ const platformMeta: Record<SocialPlatform, SocialMeta> = {
 		label: "GitHub",
 		icon: <FaGithub />,
 		color: "#F3F4F4",
-	},
-};
-
-const containerVariants: Variants = {
-	hidden: { opacity: 0 },
-	show: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.08,
-			delayChildren: 0.05,
-		},
-	},
-};
-
-const itemVariants: Variants = {
-	hidden: { opacity: 0, y: 12 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: [0.22, 1, 0.36, 1],
-		},
 	},
 };
 
@@ -100,17 +78,17 @@ const Socials = () => {
 			>
 				<div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-foreground/10 blur-2xl" />
 				<div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-					<p className="text-sm text-foreground/90 md:text-base">
+					<p className="text-xs text-foreground/90 sm:text-sm md:text-base">
 						Open to internships, freelance projects, and community collaboration.
 					</p>
 					<a
 						href={socialsData[0]?.url ?? "#"}
 						target="_blank"
 						rel="noreferrer"
-						className="inline-flex w-fit items-center gap-1 rounded-md border border-border bg-surface/70 px-3 py-2 text-xs font-medium text-foreground hover:bg-surface md:text-sm"
+						className="inline-flex w-fit items-center gap-1 rounded-md border border-border bg-surface/70 px-2.5 py-1.5 text-[10px] font-medium text-foreground hover:bg-surface md:px-3 md:py-2 md:text-xs md:text-sm"
 					>
 						Start a conversation
-						<OpenInNewRoundedIcon className="text-base" />
+						<OpenInNewRoundedIcon className="text-sm md:text-base" />
 					</a>
 				</div>
 			</motion.section>

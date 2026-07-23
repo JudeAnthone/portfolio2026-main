@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { sectionRoutes, type SectionId } from "../../app/routes";
 
 const Header = () => {
@@ -28,13 +29,22 @@ const Header = () => {
 	}, []);
 
 	return (
-		<header className="fixed inset-x-0 top-2 z-50 md:top-4">
+		<motion.header
+			initial={{ y: 100, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{
+				duration: 0.6,
+				ease: [0.22, 1, 0.36, 1],
+				delay: 0.3,
+			}}
+			className="fixed inset-x-0 bottom-0 z-50 md:bottom-auto md:top-4"
+		>
 			<div className="mx-auto w-full max-w-7xl px-3 md:px-6">
 				<nav
 					aria-label="Primary navigation"
-					className="mx-auto w-full max-w-md rounded-full border border-border bg-surface/70 px-2 py-2 backdrop-blur-sm shadow-lg shadow-black/30 md:max-w-xl md:px-3"
+					className="mx-auto w-full max-w-md rounded-t-2xl border-x border-t border-border bg-surface/90 px-2 py-3 backdrop-blur-xl md:max-w-xl md:rounded-full md:border md:px-3 md:py-2 md:bg-surface/70 md:shadow-lg md:shadow-black/30"
 				>
-					<ul className="flex items-center justify-start gap-1 overflow-x-auto whitespace-nowrap md:justify-center md:gap-2">
+					<ul className="flex items-center justify-center gap-1 md:gap-2">
 						{sectionRoutes.map((route) => {
 							const isActive = activeSection === route.id;
 
@@ -44,7 +54,7 @@ const Header = () => {
 										href={`#${route.id}`}
 										aria-current={isActive ? "page" : undefined}
 										className={[
-											"inline-flex rounded-full px-3 py-2 text-[11px] font-medium uppercase tracking-[0.12em] transition-colors md:px-4 md:text-sm md:tracking-[0.14em]",
+											"inline-flex rounded-full px-2 py-1.5 text-[10px] font-medium uppercase tracking-[0.1em] transition-colors md:px-4 md:py-2 md:text-sm md:tracking-[0.14em]",
 											isActive
 												? "bg-night-gradient text-foreground"
 												: "text-muted hover:text-foreground",
@@ -58,7 +68,7 @@ const Header = () => {
 					</ul>
 				</nav>
 			</div>
-		</header>
+		</motion.header>
 	);
 };
 

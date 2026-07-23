@@ -33,8 +33,7 @@ const AppShell = () => {
 
 				<Header />
 
-				<main id="main-content" className="pt-16 pb-8 md:pt-20 lg:pt-24">
-					{/* main grid layout */}
+				<main id="main-content" className="pb-24 pt-4 md:pb-8 md:pt-20 lg:pt-24">
 					<div className="mx-auto w-full max-w-[1280px] px-4 md:px-6">
 						<div
 							className="

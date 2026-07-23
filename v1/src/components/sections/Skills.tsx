@@ -6,7 +6,7 @@ import StorageIcon from "@mui/icons-material/Storage";
 import HandymanIcon from "@mui/icons-material/Handyman";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import type { IconType } from "react-icons";
 import {
 	SiAxios,
@@ -38,6 +38,7 @@ import { BiLogoVisualStudio } from "react-icons/bi";
 import { FaCss3Alt } from "react-icons/fa";
 import { skillsData, type SkillCategoryKey } from "../../data/skills";
 import { SectionHeader } from "../layout/SectionContainer";
+import { containerVariants, itemVariants } from "../../lib/animations";
 
 interface CategoryIconMap {
 	[key: string]: ReactNode;
@@ -93,31 +94,8 @@ const skillLogoMap: Record<string, SkillLogoMeta> = {
 	"CI/CD": { icon: SiGithubactions, color: "#2088FF" },
 };
 
-const containerVariants: Variants = {
-	hidden: { opacity: 0 },
-	show: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.07,
-			delayChildren: 0.04,
-		},
-	},
-};
-
-const itemVariants: Variants = {
-	hidden: { opacity: 0, y: 10 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.45,
-			ease: [0.22, 1, 0.36, 1],
-		},
-	},
-};
-
 const logoTileBaseClass =
-	"group inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface-2 text-foreground transition duration-200 hover:-translate-y-0.5 hover:bg-surface md:h-11 md:w-11";
+	"group inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-surface-2 text-foreground transition duration-200 hover:-translate-y-0.5 hover:bg-surface sm:h-10 sm:w-10 md:h-11 md:w-11 md:rounded-lg";
 
 const Skills = () => {
 	if (!skillsData.length) {
@@ -167,14 +145,13 @@ const Skills = () => {
 							<span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-surface-2 text-lg text-foreground">
 								{getCategoryIcon(category.key)}
 							</span>
-							<h3 className="text-base font-semibold text-foreground md:text-lg">
+							<h3 className="text-sm font-semibold text-foreground sm:text-base md:text-lg">
 								{category.title}
 							</h3>
 						</div>
 
 						<ul
-							className="flex flex-wrap gap-2"
-							aria-label={category.title + " technologies"}
+							className="flex flex-wrap gap-1.5 sm:gap-2"
 						>
 							{category.items.map((item) => {
 								const logoMeta = skillLogoMap[item];

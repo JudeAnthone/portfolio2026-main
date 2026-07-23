@@ -9,9 +9,10 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PhotoLibraryRoundedIcon from "@mui/icons-material/PhotoLibraryRounded";
 import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
 import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { aboutData } from "../../data/about";
 import { SectionHeader } from "../layout/SectionContainer";
+import { containerVariants, itemVariants } from "../../lib/animations";
 
 interface AboutGalleryImage {
 	src: string;
@@ -44,32 +45,6 @@ const galleryImages: ReadonlyArray<AboutGalleryImage> = [
 		alt: "photo6",
 	},
 ];
-
-const GALLERY_CARD_WIDTH = 220;
-const GALLERY_CARD_GAP = 10;
-
-const containerVariants: Variants = {
-	hidden: { opacity: 0 },
-	show: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.08,
-			delayChildren: 0.05,
-		},
-	},
-};
-
-const itemVariants: Variants = {
-	hidden: { opacity: 0, y: 12 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: [0.22, 1, 0.36, 1],
-		},
-	},
-};
 
 const About = () => {
 	const [activeSlide, setActiveSlide] = useState(0);
@@ -138,7 +113,7 @@ const About = () => {
 	return (
 		<motion.article
 			aria-labelledby="about-title"
-			className="space-y-6 md:space-y-8"
+			className="space-y-5 md:space-y-8"
 			variants={containerVariants}
 			initial="hidden"
 			whileInView="show"
@@ -154,7 +129,6 @@ const About = () => {
 			</motion.div>
 
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
-				{/* main content */}
 				<motion.section
 					variants={itemVariants}
 					className="relative overflow-hidden rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-8 md:p-6"
@@ -168,29 +142,29 @@ const About = () => {
 						className="pointer-events-none absolute -left-16 bottom-0 h-40 w-40 rounded-full bg-night-gradient opacity-30 blur-2xl"
 					/>
 
-					<div className="relative space-y-5">
-						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-3 py-1.5">
-							<RocketLaunchRoundedIcon className="text-base text-foreground" />
-							<span className="text-xs font-medium uppercase tracking-[0.12em] text-foreground">
+					<div className="relative space-y-4 md:space-y-5">
+						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 md:px-3 md:py-1.5">
+							<RocketLaunchRoundedIcon className="text-sm text-foreground md:text-base" />
+							<span className="text-[10px] font-medium uppercase tracking-[0.1em] text-foreground md:text-xs md:tracking-[0.12em]">
 								Currently Building
 							</span>
 						</div>
 
-						<p className="text-sm leading-relaxed text-muted md:text-base">
+						<p className="text-xs leading-relaxed text-muted md:text-sm md:text-base">
 							{aboutData.description}
 						</p>
 
 						<div className="flex flex-wrap gap-2">
-							<span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-3 py-1.5 text-xs text-muted md:text-sm">
-								<LocationOnOutlinedIcon className="text-base text-foreground" />
+							<span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 text-[10px] text-muted md:px-3 md:py-1.5 md:text-xs md:text-sm">
+								<LocationOnOutlinedIcon className="text-sm text-foreground md:text-base" />
 								<span>
 									<span className="text-foreground">Location:</span>{" "}
 									{aboutData.location}
 								</span>
 							</span>
 
-							<span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-3 py-1.5 text-xs text-muted md:text-sm">
-								<WorkOutlineRoundedIcon className="text-base text-foreground" />
+							<span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 text-[10px] text-muted md:px-3 md:py-1.5 md:text-xs md:text-sm">
+								<WorkOutlineRoundedIcon className="text-sm text-foreground md:text-base" />
 								<span>
 									<span className="text-foreground">Status:</span>{" "}
 									{aboutData.availability}
@@ -208,13 +182,13 @@ const About = () => {
 										key={item}
 										variants={itemVariants}
 										whileHover={{ y: -2, scale: 1.01 }}
-										className="rounded-xl border border-border bg-surface-2 px-3 py-2 text-sm text-foreground transition-colors duration-200 hover:bg-surface"
+										className="rounded-xl border border-border bg-surface-2 px-3 py-2 text-xs text-foreground transition-colors duration-200 hover:bg-surface md:text-sm"
 									>
 										<span className="inline-flex items-center gap-2">
 											{index % 2 === 0 ? (
-												<AutoAwesomeRoundedIcon className="text-base text-foreground/80" />
+												<AutoAwesomeRoundedIcon className="text-sm text-foreground/80 md:text-base" />
 											) : (
-												<BoltRoundedIcon className="text-base text-foreground/80" />
+												<BoltRoundedIcon className="text-sm text-foreground/80 md:text-base" />
 											)}
 											{item}
 										</span>
@@ -226,33 +200,31 @@ const About = () => {
 						<div className="flex flex-wrap gap-2 pt-1">
 							<a
 								href="#projects"
-								className="inline-flex items-center gap-1 rounded-lg border border-border bg-surface-2 px-3 py-2 text-xs font-medium text-foreground hover:bg-surface md:text-sm"
+								className="inline-flex items-center gap-1 rounded-lg border border-border bg-surface-2 px-2.5 py-2 text-[10px] font-medium text-foreground hover:bg-surface md:px-3 md:text-xs md:text-sm"
 							>
 								View Projects
-								<ArrowOutwardRoundedIcon className="text-base" />
+								<ArrowOutwardRoundedIcon className="text-sm md:text-base" />
 							</a>
 
 							<a
 								href="#socials"
-								className="inline-flex items-center gap-1 rounded-lg border border-border bg-night-gradient px-3 py-2 text-xs font-medium text-foreground md:text-sm"
+								className="inline-flex items-center gap-1 rounded-lg border border-border bg-night-gradient px-2.5 py-2 text-[10px] font-medium text-foreground md:px-3 md:text-xs md:text-sm"
 							>
 								Let&apos;s Connect
-								<ArrowOutwardRoundedIcon className="text-base" />
+								<ArrowOutwardRoundedIcon className="text-sm md:text-base" />
 							</a>
 						</div>
 					</div>
 				</motion.section>
-				
-				
-				{/* right side bento */}
+
 				<motion.aside variants={itemVariants} className="space-y-3 md:col-span-4">
 					<div className="relative overflow-hidden rounded-md border border-border bg-night-gradient p-4 md:p-5">
 						<div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-foreground/10 blur-2xl" />
 						<div className="relative">
-							<p className="text-xs font-medium uppercase tracking-[0.14em] text-foreground/70">
+							<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-foreground/70 md:text-xs md:tracking-[0.14em]">
 								Profile Snapshot
 							</p>
-							<p className="mt-2 text-sm leading-relaxed text-foreground md:text-base">
+							<p className="mt-2 text-xs leading-relaxed text-foreground md:text-sm md:text-base">
 								Full-stack focused with strong interest in modern SaaS products,
 								dashboards, and scalable UX systems.
 							</p>
@@ -260,7 +232,7 @@ const About = () => {
 					</div>
 
 					{hasMetrics ? (
-						<div className="grid grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-1">
+						<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-1">
 							{aboutData.metrics.map((metric, index) => (
 								<motion.div
 									key={metric.label}
@@ -269,15 +241,15 @@ const About = () => {
 									className="rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:p-5"
 								>
 									<div className="flex items-start justify-between gap-2">
-										<p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+										<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-muted md:text-[11px] md:tracking-[0.14em]">
 											0{index + 1}
 										</p>
-										<InsightsRoundedIcon className="text-base text-foreground/50" />
+										<InsightsRoundedIcon className="text-sm text-foreground/50 md:text-base" />
 									</div>
-									<p className="mt-2 text-xs uppercase tracking-[0.12em] text-muted">
+									<p className="mt-2 text-[10px] uppercase tracking-[0.1em] text-muted md:text-xs md:tracking-[0.12em]">
 										{metric.label}
 									</p>
-									<p className="mt-1 text-sm font-semibold leading-snug text-foreground md:text-base">
+									<p className="mt-1 text-xs font-semibold leading-snug text-foreground md:text-sm md:text-base">
 										{metric.value}
 									</p>
 								</motion.div>
@@ -289,21 +261,19 @@ const About = () => {
 						</div>
 					)}
 				</motion.aside>
-				
 
-				{/* gallery carousel */}
 				<motion.section
 					variants={itemVariants}
 					className="relative overflow-hidden rounded-md border border-border bg-surface/70 p-2 backdrop-blur-sm md:col-span-12 md:p-4"
 				>
 					<div className="flex items-center justify-between gap-3">
-						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-3 py-1.5">
-							<PhotoLibraryRoundedIcon className="text-base text-foreground" />
-							<span className="text-xs font-medium uppercase tracking-[0.12em] text-foreground">
+						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 md:px-3 md:py-1.5">
+							<PhotoLibraryRoundedIcon className="text-sm text-foreground md:text-base" />
+							<span className="text-[10px] font-medium uppercase tracking-[0.1em] text-foreground md:text-xs md:tracking-[0.12em]">
 								Gallery
 							</span>
 						</div>
-						<p className="text-xs text-muted">
+						<p className="text-[10px] text-muted md:text-xs">
 							{totalSlides === 0
 								? "0 / 0"
 								: `Showing ${activeSlide + 1}-${Math.min(
@@ -313,13 +283,12 @@ const About = () => {
 						</p>
 					</div>
 
-					<div className="relative mt-4">
-						{/* gallery imgs */}
-						<div className="overflow-hidden rounded-xl border border-border bg-surface-2 px-3 py-3">
+					<div className="relative mt-3 md:mt-4">
+						<div className="overflow-hidden rounded-xl border border-border bg-surface-2 px-2 py-2 md:px-3 md:py-3">
 							<motion.ul
-								className="flex gap-[10px]"
+								className="flex gap-2 md:gap-[10px]"
 								animate={{
-									x: -(activeSlide * (GALLERY_CARD_WIDTH + GALLERY_CARD_GAP)),
+									x: -(activeSlide * (220 + 10)),
 								}}
 								transition={{ type: "spring", stiffness: 340, damping: 34 }}
 							>
@@ -331,27 +300,27 @@ const About = () => {
 										<img
 											src={image.src}
 											alt={image.alt}
-											className="h-44 w-[220px] object-cover transition-transform duration-300 group-hover:scale-[1.04] md:h-48"
+											className="h-36 w-[180px] object-cover transition-transform duration-300 group-hover:scale-[1.04] sm:h-44 sm:w-[220px] md:h-48"
 											loading="lazy"
 										/>
 										<div
 											aria-hidden="true"
-											className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/45 to-transparent"
+											className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/45 to-transparent sm:h-16"
 										/>
 									</li>
 								))}
 							</motion.ul>
 						</div>
 
-						<div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between">
+						<div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-1">
 							<button
 								type="button"
 								onClick={handlePreviousSlide}
 								disabled={activeSlide === 0}
 								aria-label="Previous gallery images"
-								className="pointer-events-auto -ml-2 inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 bg-black/80 text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-35"
+								className="pointer-events-auto inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/15 bg-black/80 text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-35 md:h-10 md:w-10"
 							>
-								<ChevronLeftRoundedIcon className="text-xl" />
+								<ChevronLeftRoundedIcon className="text-lg md:text-xl" />
 							</button>
 
 							<button
@@ -359,15 +328,15 @@ const About = () => {
 								onClick={handleNextSlide}
 								disabled={activeSlide >= maxSlide}
 								aria-label="Next gallery images"
-								className="pointer-events-auto -mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 bg-black/80 text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-35"
+								className="pointer-events-auto inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/15 bg-black/80 text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-35 md:h-10 md:w-10"
 							>
-								<ChevronRightRoundedIcon className="text-xl" />
+								<ChevronRightRoundedIcon className="text-lg md:text-xl" />
 							</button>
 						</div>
 					</div>
 
 					<ul
-						className="mt-4 flex items-center justify-center gap-2"
+						className="mt-3 flex items-center justify-center gap-2 md:mt-4"
 						aria-label="Gallery pagination"
 					>
 						{Array.from({ length: pageCount }).map((_, index) => {
@@ -381,8 +350,8 @@ const About = () => {
 										aria-label={"Go to gallery page " + (index + 1)}
 										className={
 											isActive
-												? "h-2.5 w-6 rounded-full bg-foreground transition-all"
-												: "h-2.5 w-2.5 rounded-full bg-border transition-all hover:bg-foreground/60"
+												? "h-2 w-4 rounded-full bg-foreground transition-all md:h-2.5 md:w-6"
+												: "h-2 w-2 rounded-full bg-border transition-all hover:bg-foreground/60 md:h-2.5 md:w-2.5"
 										}
 									/>
 								</li>

@@ -1,10 +1,11 @@
 import type { ComponentType } from 'react'
+import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import Skills from '../components/sections/Skills'
 import Projects from '../components/sections/Projects'
 import Socials from '../components/sections/Socials'
 
-export type SectionId = 'about' | 'skills' | 'projects' | 'socials'
+export type SectionId = 'hero' | 'about' | 'skills' | 'projects' | 'socials'
 
 export interface SectionRoute {
   id: SectionId
@@ -13,6 +14,7 @@ export interface SectionRoute {
 }
 
 export const sectionRoutes: ReadonlyArray<SectionRoute> = [
+  { id: 'hero', label: 'Home', Component: Hero },
   { id: 'about', label: 'About', Component: About },
   { id: 'skills', label: 'Skills', Component: Skills },
   { id: 'projects', label: 'Projects', Component: Projects },
