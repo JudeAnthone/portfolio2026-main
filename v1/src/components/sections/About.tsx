@@ -46,38 +46,36 @@ const galleryImages: ReadonlyArray<AboutGalleryImage> = [
 	},
 ];
 
+const GALLERY_CARD_GAP = 10;
+
 const About = () => {
 	const [activeSlide, setActiveSlide] = useState(0);
 	const [slidesPerView, setSlidesPerView] = useState(1);
+	const [cardWidth, setCardWidth] = useState(220);
 
 	const totalSlides = galleryImages.length;
 	const maxSlide = Math.max(totalSlides - slidesPerView, 0);
 	const pageCount = totalSlides > 0 ? maxSlide + 1 : 0;
 
 	useEffect(() => {
-		const updateSlidesPerView = () => {
-			if (window.innerWidth >= 1280) {
-				setSlidesPerView(5);
-				return;
-			}
-			if (window.innerWidth >= 1024) {
-				setSlidesPerView(4);
-				return;
-			}
-			if (window.innerWidth >= 768) {
+		const updateLayout = () => {
+			const w = window.innerWidth;
+
+			if (w >= 768) {
 				setSlidesPerView(3);
-				return;
-			}
-			if (window.innerWidth >= 520) {
+				setCardWidth(220);
+			} else if (w >= 520) {
 				setSlidesPerView(2);
-				return;
+				setCardWidth(180);
+			} else {
+				setSlidesPerView(1);
+				setCardWidth(Math.min(w - 48, 220));
 			}
-			setSlidesPerView(1);
 		};
 
-		updateSlidesPerView();
-		window.addEventListener("resize", updateSlidesPerView);
-		return () => window.removeEventListener("resize", updateSlidesPerView);
+		updateLayout();
+		window.addEventListener("resize", updateLayout);
+		return () => window.removeEventListener("resize", updateLayout);
 	}, []);
 
 	useEffect(() => {
@@ -286,9 +284,10 @@ const About = () => {
 					<div className="relative mt-3 md:mt-4">
 						<div className="overflow-hidden rounded-xl border border-border bg-surface-2 px-2 py-2 md:px-3 md:py-3">
 							<motion.ul
-								className="flex gap-2 md:gap-[10px]"
+								className="flex"
+								style={{ gap: `${GALLERY_CARD_GAP}px` }}
 								animate={{
-									x: -(activeSlide * (220 + 10)),
+									x: -(activeSlide * (cardWidth + GALLERY_CARD_GAP)),
 								}}
 								transition={{ type: "spring", stiffness: 340, damping: 34 }}
 							>
@@ -296,17 +295,20 @@ const About = () => {
 									<li
 										key={image.src + "-" + index}
 										className="group relative shrink-0 overflow-hidden rounded-lg border border-border/70"
+										style={{ width: `${cardWidth}px` }}
 									>
-										<img
-											src={image.src}
-											alt={image.alt}
-											className="h-36 w-[180px] object-cover transition-transform duration-300 group-hover:scale-[1.04] sm:h-44 sm:w-[220px] md:h-48"
-											loading="lazy"
-										/>
-										<div
-											aria-hidden="true"
-											className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/45 to-transparent sm:h-16"
-										/>
+										<div className="relative h-[200px] w-full sm:h-[240px] md:h-[260px]">
+											<img
+												src={image.src}
+												alt={image.alt}
+												className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]"
+												loading="lazy"
+											/>
+											<div
+												aria-hidden="true"
+												className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent"
+											/>
+										</div>
 									</li>
 								))}
 							</motion.ul>
