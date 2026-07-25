@@ -37,13 +37,94 @@ const galleryImages: ReadonlyArray<AboutGalleryImage> = [
 		alt: "photo4",
 	},
 	{
-		src: "/brand/card-img1.jpg",
-		alt: "photo5",
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo1",
 	},
 	{
-		src: "/brand/card-img1.jpg",
-		alt: "photo6",
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
 	},
+	{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+	{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+	{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+	{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+		{
+		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
+		alt: "photo4",
+	},
+	
 ];
 
 const GALLERY_CARD_GAP = 10;
@@ -125,7 +206,6 @@ const About = () => {
 					description={aboutData.intro}
 				/>
 			</motion.div>
-
 
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
 				<motion.section
@@ -223,10 +303,11 @@ const About = () => {
 							<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-foreground/70 md:text-xs md:tracking-[0.14em]">
 								Profile Snapshot
 							</p>
-						<p className="mt-2 text-xs leading-relaxed text-foreground md:text-sm md:text-base">
-							Student Fullstack Software Developer and Aspiring Cloud Engineer focused on modern SaaS
-							products, AI Automation, dashboards, and scalable UX systems.
-						</p>
+							<p className="mt-2 text-xs leading-relaxed text-foreground md:text-sm md:text-base">
+								Student Fullstack Software Developer and Aspiring Cloud Engineer
+								focused on modern SaaS products, AI Automation, dashboards, and
+								scalable UX systems.
+							</p>
 						</div>
 					</div>
 
