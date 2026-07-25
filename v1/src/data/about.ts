@@ -4,7 +4,6 @@ export interface AboutMetric {
 }
 
 export interface AboutData {
-	tagline: string;
 	intro: string;
 	description: string;
 	location: string;
@@ -14,10 +13,9 @@ export interface AboutData {
 }
 
 export const aboutData: AboutData = {
-	tagline: "/ 01 About Me",
-	intro: "4th Year Computer Science student focused on full-stack development and building practical, real-world applications.",
+	intro: "4th Year Computer Science student and Fullstack Software Developer specializing in building practical, real-world applications with modern web technologies.",
 	description:
-		"I build full-stack web applications using React, TypeScript, Node.js, and PostgreSQL, focusing on clean UI and structured backend systems. I’m expanding into DevOps (Docker, CI/CD) and exploring AI/ML to integrate data-driven features, with a strong interest in SaaS and dashboard-driven applications.",
+		"I build full-stack web applications using React, TypeScript, Node.js, and PostgreSQL, focusing on clean UI and structured backend systems. As a Cloud Engineer, I work with Docker, CI/CD pipelines, and cloud infrastructure to deploy scalable applications. My work in AI Automation integrates data-driven features and intelligent workflows, with a strong interest in SaaS and dashboard-driven applications.",
 	location: "Philippines",
 	availability: "Open for internships, freelance projects, and collaboration opportunities",
 	stackHighlights: [
@@ -25,18 +23,17 @@ export const aboutData: AboutData = {
 		"Tailwind CSS + Responsive UI",
 		"Node.js + Express",
 		"PostgreSQL + REST APIs",
-		"Docker + CI/CD (Learning)",
-		"Machine Learning & AI (Fundamentals)",
+		"Docker + CI/CD + Cloud Engineering",
+		"AI Automation & Machine Learning",
 	],
 	metrics: [
 		{
 			label: "Primary Focus",
-			value: "Full-Stack Web Development, Data Science, and Data Analytics",
+			value: "Fullstack Software Development & Cloud Engineering",
 		},
-
 		{
-			label: "Interests",
-			value: "SaaS Platforms, Dashboard Systems, and Data-Driven Solutions",
+			label: "Specializations",
+			value: "AI Automation, Scalable Web Systems & Data-Driven Solutions",
 		},
 	],
 };

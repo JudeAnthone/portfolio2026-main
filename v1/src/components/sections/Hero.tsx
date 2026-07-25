@@ -2,16 +2,14 @@ import { useEffect, useState } from "react";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import { motion, type Variants } from "framer-motion";
-import { aboutData } from "../../data/about";
 
 const roles = [
-	"Full-Stack Developer",
-	"Frontend Developer",
-    "Backend Developer",
+	"Fullstack Software Developer",
 	"Cloud Engineer",
 	"AI Automation",
-	"GO-HIGH-LEVEL Automation",
 	"Computer Science",
+	"Frontend Developer",
+	"Backend Developer",
 ];
 
 const containerVariants: Variants = {
@@ -128,8 +126,13 @@ const Hero = () => {
 				variants={itemVariants}
 				className="mt-3 h-6 overflow-hidden sm:h-8 md:mt-4 md:h-10"
 			>
-				<p className="text-base font-medium text-muted sm:text-lg md:text-2xl md:text-3xl">
-					<span className="bg-night-gradient bg-clip-text text-transparent">
+				<p className="text-base font-medium sm:text-lg md:text-2xl md:text-3xl">
+					<span
+						className="bg-clip-text text-white"
+						style={{
+							backgroundSize: "100%",
+						}}
+					>
 						{displayText}
 					</span>
 					<span className="ml-0.5 inline-block h-4 w-[2px] animate-pulse bg-foreground/70 sm:h-6 sm:w-[3px] md:h-8" />
@@ -140,7 +143,8 @@ const Hero = () => {
 				variants={itemVariants}
 				className="mt-4 max-w-sm px-4 text-xs leading-relaxed text-muted sm:max-w-lg sm:text-sm md:mt-6 md:text-base"
 			>
-				{aboutData.intro}
+				4th Year Computer Science student and Fullstack Software Developer specializing in
+				building practical, real-world applications with modern web technologies.
 			</motion.p>
 
 			<motion.div

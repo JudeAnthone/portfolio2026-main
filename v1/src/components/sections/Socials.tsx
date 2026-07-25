@@ -66,7 +66,7 @@ const Socials = () => {
 			<motion.div variants={itemVariants}>
 				<SectionHeader
 					id="socials-title"
-					tag="/03 Socials"
+					tag="/04 Socials"
 					lines={["Let's", "Connect."]}
 					description="Reach me for opportunities, collaborations, and tech conversations."
 				/>

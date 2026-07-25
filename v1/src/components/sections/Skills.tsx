@@ -124,7 +124,7 @@ const Skills = () => {
 			<motion.div variants={itemVariants}>
 				<SectionHeader
 					id="skills-title"
-					tag="/04 Skills"
+					tag="/02 Skills"
 					lines={["Tools", "Of The Trade."]}
 					description="Technologies I use to build, ship, and maintain modern web products."
 				/>

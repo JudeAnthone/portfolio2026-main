@@ -126,6 +126,7 @@ const About = () => {
 				/>
 			</motion.div>
 
+
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
 				<motion.section
 					variants={itemVariants}
@@ -222,10 +223,10 @@ const About = () => {
 							<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-foreground/70 md:text-xs md:tracking-[0.14em]">
 								Profile Snapshot
 							</p>
-							<p className="mt-2 text-xs leading-relaxed text-foreground md:text-sm md:text-base">
-								Full-stack focused with strong interest in modern SaaS products,
-								dashboards, and scalable UX systems.
-							</p>
+						<p className="mt-2 text-xs leading-relaxed text-foreground md:text-sm md:text-base">
+							Student Fullstack Software Developer and Aspiring Cloud Engineer focused on modern SaaS
+							products, AI Automation, dashboards, and scalable UX systems.
+						</p>
 						</div>
 					</div>
 

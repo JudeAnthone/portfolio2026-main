@@ -31,7 +31,7 @@ const Projects = () => {
 			<motion.div variants={itemVariants}>
 				<SectionHeader
 					id="projects-title"
-					tag="/02 Projects"
+					tag="/03 Projects"
 					lines={["Featured", "Works."]}
 					description="Selected builds that represent my current engineering and product approach."
 				/>
