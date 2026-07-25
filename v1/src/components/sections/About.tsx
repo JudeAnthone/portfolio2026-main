@@ -20,111 +20,51 @@ interface AboutGalleryImage {
 }
 
 const galleryImages: ReadonlyArray<AboutGalleryImage> = [
-	{
-		src: "/brand/card-img1.jpg",
-		alt: "photo1",
-	},
-	{
-		src: "/brand/card-img5.jpg",
-		alt: "photo2",
-	},
-	{
-		src: "/brand/card-img6.jpg",
-		alt: "photo3",
-	},
-	{
-		src: "/brand/card-img7.jpg",
-		alt: "photo4",
-	},
-	{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo1",
-	},
-	{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-	{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-	{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-	{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-	{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-		{
-		src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg",
-		alt: "photo4",
-	},
-	
+	{ src: "/brand/card-img5.jpg", alt: "Gallery photo 5" },
+	{ src: "/brand/card-img1.jpg", alt: "Gallery photo 1" },
+	{ src: "/brand/card-img6.jpg", alt: "Gallery photo 6" },
+	{ src: "/brand/card-img7.jpg", alt: "Gallery photo 7" },
+	{ src: "/brand/gallery/05eb7c79-ecc5-42cd-9b65-4e120da2cf19.jpg", alt: "Gallery photo 8" },
+	{ src: "/brand/gallery/60d59b68-f3c5-446a-a04f-ea5cc6aee95b.jpg", alt: "Gallery photo 10" },
+	{ src: "/brand/gallery/6101c24c-21db-42a1-bc3a-bb060bf6ebd1.jpg", alt: "Gallery photo 11" },
+	{ src: "/brand/gallery/626fddeb-c698-4250-930b-bd1086996197.jpg", alt: "Gallery photo 12" },
+	{ src: "/brand/gallery/689b0763-6943-499d-b32c-8d138af5351c.jpg", alt: "Gallery photo 13" },
+	{ src: "/brand/gallery/6df830d2-dd4a-4ea9-a3da-15a563ef4c0b.jpg", alt: "Gallery photo 14" },
+	{ src: "/brand/gallery/75ffebe8-47c7-49a3-a00f-2621e15fc27a.jpg", alt: "Gallery photo 15" },
+	{ src: "/brand/gallery/bba1072b-980b-4be4-9760-21fdd8708cbf.jpg", alt: "Gallery photo 16" },
+	{ src: "/brand/gallery/cac7e84d-7eb4-4a4d-af11-3c63bd62097c.jpg", alt: "Gallery photo 17" },
+	{ src: "/brand/gallery/e3e358a1-9e54-4c53-a15e-9508795cb4f6.jpg", alt: "Gallery photo 18" },
+	{ src: "/brand/gallery/ee67a697-c2b5-4f47-8295-ca94f705a0f0 (1).jpg", alt: "Gallery photo 19" },
+	{ src: "/brand/gallery/photo_6280332245616759134_y.jpg", alt: "Gallery photo 21" },
+	{ src: "/brand/gallery/photo_6280332245616759135_y.jpg", alt: "Gallery photo 22" },
+	{ src: "/brand/gallery/photo_6280332245616759138_y.jpg", alt: "Gallery photo 23" },
+	{ src: "/brand/gallery/photo_6280332245616759141_y.jpg", alt: "Gallery photo 25" },
+	{ src: "/brand/gallery/photo_6280332245616759145_y.jpg", alt: "Gallery photo 27" },
+	{ src: "/brand/gallery/photo_6280332245616759147_y.jpg", alt: "Gallery photo 28" },
+	{ src: "/brand/gallery/photo_6280332245616759150_y.jpg", alt: "Gallery photo 29" },
+	{ src: "/brand/gallery/photo_6280332245616759151_y.jpg", alt: "Gallery photo 30" },
+	{ src: "/brand/gallery/photo_6280332245616759152_y.jpg", alt: "Gallery photo 31" },
+	{ src: "/brand/gallery/photo_6280332245616759153_y.jpg", alt: "Gallery photo 32" },
+	{ src: "/brand/gallery/photo_6280332245616759154_y.jpg", alt: "Gallery photo 33" },
+	{ src: "/brand/gallery/photo_6280332245616759155_y.jpg", alt: "Gallery photo 34" },
+	{ src: "/brand/gallery/photo_6280332245616759156_y.jpg", alt: "Gallery photo 35" },
+	{ src: "/brand/gallery/photo_6280332245616759160_y.jpg", alt: "Gallery photo 37" },
+	{ src: "/brand/gallery/photo_6280332245616759162_y.jpg", alt: "Gallery photo 38" },
+	{ src: "/brand/gallery/photo_6280332245616759163_y.jpg", alt: "Gallery photo 39" },
+	{ src: "/brand/gallery/photo_6280332245616759165_y.jpg", alt: "Gallery photo 41" },
+	{ src: "/brand/gallery/photo_6280332245616759166_y.jpg", alt: "Gallery photo 42" },
+	{ src: "/brand/gallery/photo_6280332245616759167_y.jpg", alt: "Gallery photo 43" },
+	{ src: "/brand/gallery/photo_6280332245616759169_y.jpg", alt: "Gallery photo 44" },
+	{ src: "/brand/gallery/photo_6280332245616759170_y.jpg", alt: "Gallery photo 45" },
+	{ src: "/brand/gallery/photo_6280332245616759172_y.jpg", alt: "Gallery photo 46" },
+	{ src: "/brand/gallery/photo_6280332245616759173_y.jpg", alt: "Gallery photo 47" },
+	{ src: "/brand/gallery/photo_6280332245616759175_y.jpg", alt: "Gallery photo 48" },
+	{ src: "/brand/gallery/photo_6280332245616759177_y.jpg", alt: "Gallery photo 49" },
+	{ src: "/brand/gallery/photo_6280332245616759178_y.jpg", alt: "Gallery photo 50" },
+	{ src: "/brand/gallery/photo_6280332245616759180_y.jpg", alt: "Gallery photo 51" },
+	{ src: "/brand/gallery/photo_6280332245616759181_y.jpg", alt: "Gallery photo 52" },
+	{ src: "/brand/gallery/photo_6280332245616759182_y.jpg", alt: "Gallery photo 53" },
+	{ src: "/brand/gallery/photo_6280332245616759186_y.jpg", alt: "Gallery photo 54" },
 ];
 
 const GALLERY_CARD_GAP = 10;
