@@ -122,7 +122,7 @@ export const projectsData: ReadonlyArray<ProjectItem> = [
 		stack: ["React", "TypeScript", "Tailwind CSS"],
 		status: "In Progress",
 		imageSrcs: [],
-		repoUrl: "https://github.com/JudeAnthone/portfolio2026-main",
+		repoUrl: "",
 		liveUrl: "",
 	},
 ];
