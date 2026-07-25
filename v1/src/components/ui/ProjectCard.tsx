@@ -38,7 +38,7 @@ interface ProjectIconMeta {
 
 const projectSkillMap: Record<string, ProjectIconMeta> = {
 	React: { icon: SiReact, color: "#61DAFB" },
-	NextJs: { icon: SiNextdotjs, color: "#000000" },
+	NextJs: { icon: SiNextdotjs, color: "#ffffff" },
 	TypeScript: { icon: SiTypescript, color: "#3178C6" },
 	"Tailwind CSS": { icon: SiTailwindcss, color: "#06B6D4" },
 	"Go Lang": { icon: SiGo, color: "#00ADD8" },
