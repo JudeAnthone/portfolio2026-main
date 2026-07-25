@@ -9,6 +9,8 @@ const roles = [
 	"Frontend Developer",
     "Backend Developer",
 	"Cloud Engineer",
+	"AI Automation",
+	"GO-HIGH-LEVEL Automation",
 	"Computer Science",
 ];
 
