@@ -11,6 +11,7 @@ import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
 import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
 import { motion } from "framer-motion";
 import { aboutData } from "../../data/about";
+import { experienceData } from "../../data/experience";
 import { SectionHeader } from "../layout/SectionContainer";
 import { containerVariants, itemVariants } from "../../lib/animations";
 
@@ -133,6 +134,7 @@ const About = () => {
 
 	const hasHighlights = aboutData.stackHighlights.length > 0;
 	const hasMetrics = aboutData.metrics.length > 0;
+	const currentExperience = experienceData.current;
 
 	return (
 		<motion.article
@@ -286,6 +288,57 @@ const About = () => {
 						</div>
 					)}
 				</motion.aside>
+
+				{currentExperience ? (
+					<motion.section
+						variants={itemVariants}
+						className="relative overflow-hidden rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-12 md:p-6"
+					>
+						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 md:px-3 md:py-1.5">
+							<WorkOutlineRoundedIcon className="text-sm text-foreground md:text-base" />
+							<span className="text-[10px] font-medium uppercase tracking-[0.1em] text-foreground md:text-xs md:tracking-[0.12em]">
+								Current Internship
+							</span>
+						</div>
+
+						<div className="mt-4 flex items-center gap-3 md:mt-5 md:gap-4">
+							<img
+								src={currentExperience.logoSrc}
+								alt={`${currentExperience.company} logo`}
+								className="h-14 w-14 shrink-0 rounded-2xl object-cover md:h-16 md:w-16"
+							/>
+							<div>
+								<h3 className="text-base font-semibold leading-tight text-foreground md:text-lg">
+									{currentExperience.company}
+								</h3>
+								<p className="text-sm font-medium text-foreground/90 md:text-base">
+									{currentExperience.role}
+								</p>
+								<p className="mt-1 flex items-center gap-1.5 text-xs text-muted md:text-sm">
+									<LocationOnOutlinedIcon className="text-sm" />
+									{currentExperience.location}
+									<span aria-hidden="true" className="text-border">
+										·
+									</span>
+									{currentExperience.dateRange}
+								</p>
+							</div>
+						</div>
+
+						<ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 md:mt-5 md:gap-2.5">
+							{currentExperience.responsibilities.map((item, index) => (
+								<motion.li
+									key={`${currentExperience.company}-responsibility-${index}`}
+									variants={itemVariants}
+									whileHover={{ y: -2, scale: 1.01 }}
+									className="rounded-xl border border-border bg-surface-2 px-3 py-2.5 text-xs leading-relaxed text-foreground transition-colors duration-200 hover:bg-surface md:text-sm"
+								>
+									{item.text}
+								</motion.li>
+							))}
+						</ul>
+					</motion.section>
+				) : null}
 
 				<motion.section
 					variants={itemVariants}
