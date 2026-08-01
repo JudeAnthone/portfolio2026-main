@@ -65,9 +65,10 @@ You type: "Create a new Projects card"
 
 ## Why Skills Save Tokens
 
-- `AGENTS.md` is always in context — keep it short (it is).
-- SKILL.md bodies are **only** loaded when relevant, so a UI task doesn't carry design-system + component rules + everything else at once.
-- Rule of thumb: if it applies to *every* change → `AGENTS.md`. If it applies to *one topic* → a SKILL.md.
+- `AGENTS.md` is always in context, so it should stay short and cover only the rules that apply to every task.
+- `SKILL.md` files are only loaded when relevant, so you do not pay for unrelated guidance on every request.
+- Example: if you ask for a UI layout change, the agent can load a design-system skill with font, spacing, and component rules. If you ask for a backend config change, that UI skill does not need to be loaded at all. Only the backend skill. this is how we save tokens. 
+- Rule of thumb: if it applies to every change, put it in `AGENTS.md`. If it only applies to one kind of task, put it in a `SKILL.md`.
 
 ## After Editing Config Files
 

@@ -42,9 +42,9 @@
 
 | Section | Tag | Lines |
 |---|---|---|
-| Skills | `/04 Skills` | `TOOLS / OF THE TRADE.` |
+| Skills | `/02 Skills` | `TOOLS / OF THE TRADE.` |
 | Projects | `/03 Projects` | `Featured / Works.` |
-| Socials | `/03 Socials` | `LET'S / CONNECT.` |
+| Socials | `/04 Socials` | `LET'S / CONNECT.` |
 
 (The tag numbers are artistically chosen, not sequential. Check `Requirement.md` for full list.)
 
