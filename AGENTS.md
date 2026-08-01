@@ -14,9 +14,11 @@
 - **Single-page app**, no router library — hash navigation via section IDs (`#hero`, `#about`, etc.) driven by `src/app/routes.tsx`
 - **Entry**: `src/main.tsx` → `App.tsx` → `AppShell.tsx`
 - **Layout**: sticky sidebar (`StickyProfileCard`) + flat section list + footer, side-by-side on `lg+`
-- **Data files**: `src/data/{project,about,skills,socials}.ts` — typed interfaces, `ReadonlyArray`
+- **Data files**: `src/data/{project,about,skills,socials,experience}.ts` — typed interfaces, `ReadonlyArray`
+  - `experience.ts` splits `current: ExperienceEntry | null` (rendered in the About "Current Internship" row) from `past: ReadonlyArray<ExperienceEntry>` for future entries
 - **Animations**: shared variants in `src/lib/animations.ts`
 - **Path alias**: `@/` → `src/` (configured in both `vite.config.ts` and `tsconfig`)
+- **`StickyProfileCard` has two responsive variants**: a compact horizontal bar (`lg:hidden`) with tap-to-expand education details (local `showDetails` state; `aria-expanded`/`aria-controls`) on mobile/tablet, and the full vertical card (`hidden lg:block`) on `lg+`
 
 ## Framework / Toolchain Quirks
 
@@ -37,6 +39,8 @@
 - Imported images organized per-project in `src/assets/{ecs,eacon,brewcrafter,lever,bbc}/`
 - Static images in `public/brand/` — accessed as `/brand/...`
 - Gallery photos in `public/brand/gallery/` — 47 personal photos used in About section
+- Company logos in `public/logo/` — accessed as `/logo/...` (e.g. `flyrank_logo.jpg` in the About "Current Internship" card)
+- Resume PDF in `public/resume/` — linked from the Header nav (`/resume/JUDE-CV-READY.2.pdf`) with the `download` attribute
 
 ## Section Header Convention
 
@@ -54,3 +58,6 @@
 - `src/lib/utils.ts` exports `cn()` (clsx + tailwind-merge)
 - No tests, no CI config
 - All sections use `whileInView` with `viewport={{ once: true }}` for scroll-triggered animations
+- **DotGrid (GSAP canvas) is desktop-only + lazy-loaded**: `DotGridBackground` in `AppShell.tsx` mounts it only when `matchMedia("(min-width: 1024px)")` matches and loads it via `React.lazy` + `Suspense` — no canvas on mobile/tablet, never blocks initial paint
+- **Header nav** renders `sectionRoutes`, then appends a non-route "Resume" download `<li>` — add extra header items there, not in `routes.tsx`
+- **`aboutData` no longer has `location`/`availability` fields**; the "Currently Building" tech grid reads a component-local `techStack` array (`{ name, subtitle, icon: ReactNode }`), not `aboutData.stackHighlights` (field kept but unused)

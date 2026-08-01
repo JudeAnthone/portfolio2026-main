@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
-import BoltRoundedIcon from "@mui/icons-material/BoltRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import CodeIcon from "@mui/icons-material/Code";
 import InsightsRoundedIcon from "@mui/icons-material/InsightsRounded";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import PaletteIcon from "@mui/icons-material/Palette";
 import PhotoLibraryRoundedIcon from "@mui/icons-material/PhotoLibraryRounded";
 import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
+import StorageIcon from "@mui/icons-material/Storage";
+import TerminalIcon from "@mui/icons-material/Terminal";
+import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
 import { motion } from "framer-motion";
 import { aboutData } from "../../data/about";
@@ -69,6 +74,21 @@ const galleryImages: ReadonlyArray<AboutGalleryImage> = [
 ];
 
 const GALLERY_CARD_GAP = 10;
+
+interface TechItem {
+	name: string;
+	subtitle: string;
+	icon: ReactNode;
+}
+
+const techStack: ReadonlyArray<TechItem> = [
+	{ name: "React", subtitle: "+ TypeScript", icon: <CodeIcon /> },
+	{ name: "Tailwind CSS", subtitle: "Responsive UI", icon: <PaletteIcon /> },
+	{ name: "Node.js", subtitle: "+ Express", icon: <TerminalIcon /> },
+	{ name: "PostgreSQL", subtitle: "REST APIs", icon: <StorageIcon /> },
+	{ name: "Docker", subtitle: "CI/CD + Cloud", icon: <ViewInArIcon /> },
+	{ name: "AI/ML", subtitle: "Automation", icon: <AutoAwesomeRoundedIcon /> },
+];
 
 const About = () => {
 	const [activeSlide, setActiveSlide] = useState(0);
@@ -132,7 +152,6 @@ const About = () => {
 		);
 	}
 
-	const hasHighlights = aboutData.stackHighlights.length > 0;
 	const hasMetrics = aboutData.metrics.length > 0;
 	const currentExperience = experienceData.current;
 
@@ -180,48 +199,29 @@ const About = () => {
 							{aboutData.description}
 						</p>
 
-						<div className="flex flex-wrap gap-2">
-							<span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 text-[10px] text-muted md:px-3 md:py-1.5 md:text-xs md:text-sm">
-								<LocationOnOutlinedIcon className="text-sm text-foreground md:text-base" />
-								<span>
-									<span className="text-foreground">Location:</span>{" "}
-									{aboutData.location}
-								</span>
-							</span>
-
-							<span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 text-[10px] text-muted md:px-3 md:py-1.5 md:text-xs md:text-sm">
-								<WorkOutlineRoundedIcon className="text-sm text-foreground md:text-base" />
-								<span>
-									<span className="text-foreground">Status:</span>{" "}
-									{aboutData.availability}
-								</span>
-							</span>
-						</div>
-
-						{hasHighlights ? (
-							<ul
-								className="grid grid-cols-1 gap-2 sm:grid-cols-2"
-								aria-label="Technology highlights"
-							>
-								{aboutData.stackHighlights.map((item, index) => (
-									<motion.li
-										key={item}
-										variants={itemVariants}
-										whileHover={{ y: -2, scale: 1.01 }}
-										className="rounded-xl border border-border bg-surface-2 px-3 py-2 text-xs text-foreground transition-colors duration-200 hover:bg-surface md:text-sm"
-									>
-										<span className="inline-flex items-center gap-2">
-											{index % 2 === 0 ? (
-												<AutoAwesomeRoundedIcon className="text-sm text-foreground/80 md:text-base" />
-											) : (
-												<BoltRoundedIcon className="text-sm text-foreground/80 md:text-base" />
-											)}
-											{item}
-										</span>
-									</motion.li>
-								))}
-							</ul>
-						) : null}
+						<ul
+							className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6"
+							aria-label="Technology stack"
+						>
+							{techStack.map((tech) => (
+								<motion.li
+									key={tech.name}
+									variants={itemVariants}
+									whileHover={{ y: -2, scale: 1.02 }}
+									className="flex flex-col items-center rounded-xl border border-border bg-surface-2 p-3 text-center transition-colors duration-200 hover:bg-surface md:p-4"
+								>
+									<span className="mb-1.5 text-lg text-foreground/80 md:text-xl">
+										{tech.icon}
+									</span>
+									<p className="text-xs font-medium text-foreground md:text-sm">
+										{tech.name}
+									</p>
+									<p className="text-[10px] text-muted md:text-xs">
+										{tech.subtitle}
+									</p>
+								</motion.li>
+							))}
+						</ul>
 
 						<div className="flex flex-wrap gap-2 pt-1">
 							<a

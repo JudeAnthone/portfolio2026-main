@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 import { motion } from "framer-motion";
 import { sectionRoutes, type SectionId } from "../../app/routes";
 
@@ -65,6 +66,17 @@ const Header = () => {
 								</li>
 							);
 						})}
+						<li key="resume">
+							<a
+								href="/resume/JUDE-CV-READY.2.pdf"
+								download="Jude-Duarte-Resume.pdf"
+								aria-label="Download resume"
+								className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-[10px] font-medium uppercase tracking-[0.1em] text-muted transition-colors hover:text-foreground md:px-4 md:py-2 md:text-sm md:tracking-[0.14em]"
+							>
+								<DownloadRoundedIcon className="text-xs md:text-sm" />
+								Resume
+							</a>
+						</li>
 					</ul>
 				</nav>
 			</div>

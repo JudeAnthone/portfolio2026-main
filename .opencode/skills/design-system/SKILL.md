@@ -62,3 +62,11 @@ Shared variants live in `src/lib/animations.ts` (`containerVariants`, `itemVaria
 ## Section Headers
 
 Always render section headers through `SectionHeader` (`src/components/layout/SectionContainer.tsx`) with a `tag` + `lines` array. Tag numbers are artistic, not sequential (see AGENTS.md table).
+
+## Section Card Headers (chip)
+
+About section cards use a consistent header chip: `inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1` with a small MUI icon (`text-sm md:text-base text-foreground`) + uppercase tracking label (`text-[10px] md:text-xs tracking-[0.1em]`). Example labels: "Currently Building", "Current Internship", "Gallery".
+
+## Bento / Icon Box Grids
+
+Icon-box grids (e.g. About's "Currently Building" tech stack) use cells of `rounded-xl border border-border bg-surface-2` with centered content: icon (`text-lg md:text-xl text-foreground/80`), label (`text-xs font-medium text-foreground`), subtitle (`text-[10px] text-muted`). Grid: `grid-cols-2 sm:grid-cols-3 md:grid-cols-6`. Drive them from a component-local `{ name, subtitle, icon: ReactNode }` array.

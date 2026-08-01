@@ -34,6 +34,8 @@ src/
 - `project.ts` uses `imageSrcs: string[]` (array of imported assets, one folder per project under `src/assets/`).
 - Static brand images live in `public/brand/` and are referenced as `/brand/...` (NOT imported). Personal gallery photos: `/brand/gallery/...`.
 - Alt text: use descriptive strings (e.g., `Gallery photo 1`), not `photo1`.
+- `experience.ts` splits `current: ExperienceEntry | null` (rendered in About's "Current Internship" row) from `past: ReadonlyArray<ExperienceEntry>` for future entries.
+- `aboutData` no longer has `location`/`availability` fields, and its `stackHighlights` is kept but **unused** — About's "Currently Building" grid reads a component-local `techStack` array (`{ name, subtitle, icon: ReactNode }`).
 
 ## TypeScript Strict Rules (build-enforced)
 
@@ -49,10 +51,13 @@ src/
 - Mobile-first: base styles for mobile, `md:` / `lg:` for larger breakpoints.
 - Animation: use `framer-motion` or `motion/react` matching the file's existing import. Import shared variants from `../../lib/animations` rather than redefining.
 - Accessibility: semantic HTML, `aria-label` on icon-only buttons, skip link exists in AppShell.
+- **Responsive variant pattern**: when a component needs a fundamentally different mobile layout, render two blocks toggled with `lg:hidden` / `hidden lg:block` (see `StickyProfileCard` — compact horizontal bar with tap-to-expand on mobile/tablet, full vertical card on `lg+`).
+- **Non-route header items**: extra Header nav items (e.g. the "Resume" download link) are appended as an extra `<li>` in `Header.tsx` after the `sectionRoutes` map — never added to `routes.tsx`.
 
 ## Key Files
 
 - `src/app/AppShell.tsx` — layout shell, sticky sidebar, section list.
+  - `DotGridBackground` (same file) mounts DotGrid only on `lg+` (`matchMedia`) and lazy-loads it via `React.lazy` + `Suspense` — no canvas on mobile/tablet, doesn't block first paint.
 - `src/app/routes.tsx` — the section registry / "routing".
 - `src/components/layout/SectionContainer.tsx` — exports both `SectionContainer` (wrapper) and `SectionHeader` (tag + lines).
 - `src/lib/animations.ts` — shared motion variants.
