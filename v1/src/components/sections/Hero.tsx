@@ -17,8 +17,8 @@ const containerVariants: Variants = {
 	show: {
 		opacity: 1,
 		transition: {
-			staggerChildren: 0.1,
-			delayChildren: 0.2,
+			staggerChildren: 0.06,
+			delayChildren: 0.05,
 		},
 	},
 };
@@ -33,20 +33,6 @@ const itemVariants: Variants = {
 			ease: [0.22, 1, 0.36, 1],
 		},
 	},
-};
-
-const letterVariants: Variants = {
-	hidden: { opacity: 0, y: 20, rotateX: -90 },
-	show: (i: number) => ({
-		opacity: 1,
-		y: 0,
-		rotateX: 0,
-		transition: {
-			duration: 0.5,
-			ease: [0.22, 1, 0.36, 1],
-			delay: i * 0.04,
-		},
-	}),
 };
 
 const Hero = () => {
@@ -80,13 +66,10 @@ const Hero = () => {
 		return () => clearTimeout(timeout);
 	}, [displayText, isDeleting, roleIndex]);
 
-	const name = "Jude Duarte";
-	const letters = name.split("");
-
 	return (
 		<motion.article
 			aria-labelledby="hero-title"
-			className="relative flex min-h-[60vh] flex-col items-center justify-center overflow-hidden text-center md:min-h-[70vh]"
+			className="relative flex min-h-[50vh] flex-col items-center justify-center overflow-hidden text-center md:min-h-[60vh] lg:min-h-[70vh]"
 			variants={containerVariants}
 			initial="hidden"
 			animate="show"
@@ -105,21 +88,10 @@ const Hero = () => {
 
 			<motion.h1
 				id="hero-title"
+				variants={itemVariants}
 				className="px-2 text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl md:text-7xl lg:text-8xl"
 			>
-				{letters.map((letter, index) => (
-					<motion.span
-						key={`${letter}-${index}`}
-						custom={index}
-						variants={letterVariants}
-						className="inline-block"
-						style={{
-							perspective: "100px",
-						}}
-					>
-						{letter === " " ? "\u00A0" : letter}
-					</motion.span>
-				))}
+				Jude Duarte
 			</motion.h1>
 
 			<motion.div

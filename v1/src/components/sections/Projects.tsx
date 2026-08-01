@@ -21,23 +21,29 @@ const Projects = () => {
 	useEffect(() => {
 		const updateLayout = () => {
 			const w = window.innerWidth;
+
+			let nextSlidesPerView = 1;
+			let nextCardWidth = 380;
+
 			if (w >= 768) {
-				setSlidesPerView(2);
-				setCardWidth(340);
+				nextSlidesPerView = 2;
+				nextCardWidth = 340;
 			} else {
-				setSlidesPerView(1);
-				setCardWidth(Math.min(w - 48, 380));
+				nextSlidesPerView = 1;
+				nextCardWidth = Math.min(w - 48, 380);
 			}
+
+			setActiveSlide((prev) =>
+				Math.min(prev, Math.max(projectsData.length - nextSlidesPerView, 0)),
+			);
+			setSlidesPerView(nextSlidesPerView);
+			setCardWidth(nextCardWidth);
 		};
 
 		updateLayout();
 		window.addEventListener("resize", updateLayout);
 		return () => window.removeEventListener("resize", updateLayout);
 	}, []);
-
-	useEffect(() => {
-		setActiveSlide((prev) => Math.min(prev, maxSlide));
-	}, [maxSlide]);
 
 	const handlePreviousSlide = () => {
 		setActiveSlide((prev) => Math.max(prev - 1, 0));

@@ -33,9 +33,9 @@ const Header = () => {
 			initial={{ y: 100, opacity: 0 }}
 			animate={{ y: 0, opacity: 1 }}
 			transition={{
-				duration: 0.6,
+				duration: 0.35,
 				ease: [0.22, 1, 0.36, 1],
-				delay: 0.3,
+				delay: 0.1,
 			}}
 			className="fixed inset-x-0 bottom-0 z-50 md:bottom-auto md:top-4"
 		>

@@ -35,9 +35,9 @@ const SectionContainer = ({ id, className = "", children }: SectionContainerProp
 			viewport={{ once: true, amount: 0.1 }}
 			className={[
 				"scroll-mt-4 border-b border-border md:scroll-mt-24",
-				"py-6 md:py-14",
+				"py-4 md:py-14",
 				"first:pt-2 md:first:pt-6",
-				"last:border-b-0 last:pb-6 md:last:pb-10",
+				"last:border-b-0 last:pb-4 md:last:pb-10",
 				className,
 			].join(" ")}
 		>
