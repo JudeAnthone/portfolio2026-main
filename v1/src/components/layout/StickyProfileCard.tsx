@@ -165,7 +165,6 @@ const StickyProfileCard = () => {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-				whileHover={{ scale: 1.01 }}
 				className="relative hidden overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] md:p-6 lg:block"
 			>
 				<div className="relative z-10 space-y-4 md:space-y-5">
