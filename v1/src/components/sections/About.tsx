@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
-import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import CodeIcon from "@mui/icons-material/Code";
 import InsightsRoundedIcon from "@mui/icons-material/InsightsRounded";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import PaletteIcon from "@mui/icons-material/Palette";
 import PhotoLibraryRoundedIcon from "@mui/icons-material/PhotoLibraryRounded";
-import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
-import StorageIcon from "@mui/icons-material/Storage";
-import TerminalIcon from "@mui/icons-material/Terminal";
-import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
+import { SiDocker, SiNodedotjs, SiPostgresql, SiReact, SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
 import { aboutData } from "../../data/about";
 import { experienceData } from "../../data/experience";
@@ -79,15 +73,64 @@ interface TechItem {
 	name: string;
 	subtitle: string;
 	icon: ReactNode;
+	description: string;
 }
 
+const N8nIcon = () => (
+	<svg
+		fill="currentColor"
+		role="img"
+		viewBox="0 0 24 24"
+		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
+	>
+		<path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632" />
+	</svg>
+);
+
 const techStack: ReadonlyArray<TechItem> = [
-	{ name: "React", subtitle: "+ TypeScript", icon: <CodeIcon /> },
-	{ name: "Tailwind CSS", subtitle: "Responsive UI", icon: <PaletteIcon /> },
-	{ name: "Node.js", subtitle: "+ Express", icon: <TerminalIcon /> },
-	{ name: "PostgreSQL", subtitle: "REST APIs", icon: <StorageIcon /> },
-	{ name: "Docker", subtitle: "CI/CD + Cloud", icon: <ViewInArIcon /> },
-	{ name: "AI/ML", subtitle: "Automation", icon: <AutoAwesomeRoundedIcon /> },
+	{
+		name: "React",
+		subtitle: "+ TypeScript",
+		icon: <SiReact />,
+		description:
+			"Building interactive, type-safe user interfaces with component-driven architecture.",
+	},
+	{
+		name: "Tailwind CSS",
+		subtitle: "Responsive UI",
+		icon: <SiTailwindcss />,
+		description:
+			"Crafting responsive, utility-first designs that scale across every screen size.",
+	},
+	{
+		name: "Node.js",
+		subtitle: "+ Express",
+		icon: <SiNodedotjs />,
+		description:
+			"Building RESTful APIs and server-side logic with JavaScript end-to-end.",
+	},
+	{
+		name: "PostgreSQL",
+		subtitle: "REST APIs",
+		icon: <SiPostgresql />,
+		description:
+			"Designing relational data models and optimizing queries for scalable applications.",
+	},
+	{
+		name: "Docker",
+		subtitle: "CI/CD + Cloud",
+		icon: <SiDocker />,
+		description:
+			"Containerizing applications and orchestrating deployments with CI/CD pipelines.",
+	},
+	{
+		name: "AI/ML",
+		subtitle: "Automation",
+		icon: <N8nIcon />,
+		description:
+			"Integrating machine learning models and automation workflows into web applications.",
+	},
 ];
 
 const About = () => {
@@ -169,14 +212,13 @@ const About = () => {
 					id="about-title"
 					tag="/01 Intro"
 					lines={["Crafting", "Digital", "Experiences."]}
-					description={aboutData.intro}
 				/>
 			</motion.div>
 
-			<div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
+			<div className="grid grid-cols-2 gap-4 md:grid-cols-12 md:gap-5">
 				<motion.section
 					variants={itemVariants}
-					className="relative overflow-hidden rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-8 md:p-6"
+					className="relative col-span-2 overflow-hidden rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-12 md:p-6"
 				>
 					<div
 						aria-hidden="true"
@@ -187,112 +229,98 @@ const About = () => {
 						className="pointer-events-none absolute -left-16 bottom-0 h-40 w-40 rounded-full bg-night-gradient opacity-30 blur-2xl"
 					/>
 
-					<div className="relative space-y-4 md:space-y-5">
-						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 md:px-3 md:py-1.5">
-							<RocketLaunchRoundedIcon className="text-sm text-foreground md:text-base" />
-							<span className="text-[10px] font-medium uppercase tracking-[0.1em] text-foreground md:text-xs md:tracking-[0.12em]">
-								Currently Building
-							</span>
-						</div>
-
-						<p className="text-xs leading-relaxed text-muted md:text-sm md:text-base">
-							{aboutData.description}
-						</p>
-
-						<ul
-							className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6"
-							aria-label="Technology stack"
-						>
-							{techStack.map((tech) => (
-								<motion.li
-									key={tech.name}
-									variants={itemVariants}
-									whileHover={{ y: -2, scale: 1.02 }}
-									className="flex flex-col items-center rounded-xl border border-border bg-surface-2 p-3 text-center transition-colors duration-200 hover:bg-surface md:p-4"
-								>
-									<span className="mb-1.5 text-lg text-foreground/80 md:text-xl">
-										{tech.icon}
-									</span>
-									<p className="text-xs font-medium text-foreground md:text-sm">
-										{tech.name}
-									</p>
-									<p className="text-[10px] text-muted md:text-xs">
-										{tech.subtitle}
-									</p>
-								</motion.li>
-							))}
-						</ul>
-
-						<div className="flex flex-wrap gap-2 pt-1">
-							<a
-								href="#projects"
-								className="inline-flex items-center gap-1 rounded-lg border border-border bg-surface-2 px-2.5 py-2 text-[10px] font-medium text-foreground hover:bg-surface md:px-3 md:text-xs md:text-sm"
-							>
-								View Projects
-								<ArrowOutwardRoundedIcon className="text-sm md:text-base" />
-							</a>
-
-							<a
-								href="#socials"
-								className="inline-flex items-center gap-1 rounded-lg border border-border bg-night-gradient px-2.5 py-2 text-[10px] font-medium text-foreground md:px-3 md:text-xs md:text-sm"
-							>
-								Let&apos;s Connect
-								<ArrowOutwardRoundedIcon className="text-sm md:text-base" />
-							</a>
-						</div>
-					</div>
+					<p className="relative max-w-3xl text-xs leading-relaxed text-muted md:text-sm md:text-base">
+						I&apos;m a fourth-year Computer Science student who enjoys building
+						software from end to end. From designing user interfaces to developing
+						backend systems, I like turning ideas into projects that solve real
+						problems. I&apos;m always learning, always building, and always looking
+						for ways to create software that&apos;s both useful and enjoyable to
+						use.
+					</p>
 				</motion.section>
 
-				<motion.aside variants={itemVariants} className="space-y-3 md:col-span-4">
-					<div className="relative overflow-hidden rounded-md border border-border bg-night-gradient p-4 md:p-5">
-						<div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-foreground/10 blur-2xl" />
-						<div className="relative">
-							<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-foreground/70 md:text-xs md:tracking-[0.14em]">
-								Profile Snapshot
-							</p>
-							<p className="mt-2 text-xs leading-relaxed text-foreground md:text-sm md:text-base">
-								Student Fullstack Software Developer and Aspiring Cloud Engineer
-								focused on modern SaaS products, AI Automation, dashboards, and
-								scalable UX systems.
-							</p>
+				{techStack.map((tech) => (
+					<motion.div
+						key={tech.name}
+						variants={itemVariants}
+						whileHover={{ y: -2, scale: 1.02 }}
+						className="col-span-1 flex flex-col rounded-xl border border-border bg-surface-2 p-4 transition-colors duration-200 hover:bg-surface md:col-span-4"
+					>
+						<div className="flex items-center gap-3">
+							<span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-lg text-foreground/80">
+								{tech.icon}
+							</span>
+							<div>
+								<p className="text-sm font-medium text-foreground">{tech.name}</p>
+								<p className="text-[10px] text-muted">{tech.subtitle}</p>
+							</div>
 						</div>
-					</div>
+						<p className="mt-3 text-xs leading-relaxed text-muted">
+							{tech.description}
+						</p>
+					</motion.div>
+				))}
 
-					{hasMetrics ? (
-						<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-1">
-							{aboutData.metrics.map((metric, index) => (
-								<motion.div
-									key={metric.label}
-									variants={itemVariants}
-									whileHover={{ y: -2 }}
-									className="rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:p-5"
-								>
-									<div className="flex items-start justify-between gap-2">
-										<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-muted md:text-[11px] md:tracking-[0.14em]">
-											0{index + 1}
-										</p>
-										<InsightsRoundedIcon className="text-sm text-foreground/50 md:text-base" />
-									</div>
-									<p className="mt-2 text-[10px] uppercase tracking-[0.1em] text-muted md:text-xs md:tracking-[0.12em]">
-										{metric.label}
+				<motion.div
+					variants={itemVariants}
+					className="col-span-2 flex flex-col justify-between gap-3 rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-6 md:p-5"
+				>
+					<div>
+						<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-muted md:text-[11px] md:tracking-[0.14em]">
+							Let&apos;s Work Together
+						</p>
+						<p className="mt-2 text-xs leading-relaxed text-foreground md:text-sm md:text-base">
+							Interested in what I&apos;m building or have a project in mind?
+							Explore my featured work or reach out to collaborate.
+						</p>
+					</div>
+					<div className="flex flex-wrap gap-2">
+						<a
+							href="#projects"
+							className="inline-flex items-center gap-1 rounded-lg border border-border bg-surface-2 px-2.5 py-2 text-[10px] font-medium text-foreground hover:bg-surface md:px-3 md:text-xs md:text-sm"
+						>
+							View Projects
+							<ArrowOutwardRoundedIcon className="text-sm md:text-base" />
+						</a>
+
+						<a
+							href="#socials"
+							className="inline-flex items-center gap-1 rounded-lg border border-border bg-night-gradient px-2.5 py-2 text-[10px] font-medium text-foreground md:px-3 md:text-xs md:text-sm"
+						>
+							Let&apos;s Connect
+							<ArrowOutwardRoundedIcon className="text-sm md:text-base" />
+						</a>
+					</div>
+				</motion.div>
+
+				{hasMetrics
+					? aboutData.metrics.map((metric, index) => (
+							<motion.div
+								key={metric.label}
+								variants={itemVariants}
+								whileHover={{ y: -2 }}
+								className="col-span-1 rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-3 md:p-5"
+							>
+								<div className="flex items-start justify-between gap-2">
+									<p className="text-[10px] font-medium uppercase tracking-[0.12em] text-muted md:text-[11px] md:tracking-[0.14em]">
+										0{index + 1}
 									</p>
-									<p className="mt-1 text-xs font-semibold leading-snug text-foreground md:text-sm md:text-base">
-										{metric.value}
-									</p>
-								</motion.div>
-							))}
-						</div>
-					) : (
-						<div className="rounded-2xl border border-border bg-surface/70 p-4 backdrop-blur-sm">
-							<p className="text-sm text-muted">No metrics available yet.</p>
-						</div>
-					)}
-				</motion.aside>
+									<InsightsRoundedIcon className="text-sm text-foreground/50 md:text-base" />
+								</div>
+								<p className="mt-2 text-[10px] uppercase tracking-[0.1em] text-muted md:text-xs md:tracking-[0.12em]">
+									{metric.label}
+								</p>
+								<p className="mt-1 text-xs font-semibold leading-snug text-foreground md:text-sm md:text-base">
+									{metric.value}
+								</p>
+							</motion.div>
+						))
+					: null}
 
 				{currentExperience ? (
 					<motion.section
 						variants={itemVariants}
-						className="relative overflow-hidden rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-12 md:p-6"
+						className="relative col-span-2 overflow-hidden rounded-md border border-border bg-surface/70 p-4 backdrop-blur-sm md:col-span-12 md:p-6"
 					>
 						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 md:px-3 md:py-1.5">
 							<WorkOutlineRoundedIcon className="text-sm text-foreground md:text-base" />
@@ -342,7 +370,7 @@ const About = () => {
 
 				<motion.section
 					variants={itemVariants}
-					className="relative overflow-hidden rounded-md border border-border bg-surface/70 p-2 backdrop-blur-sm md:col-span-12 md:p-4"
+					className="relative col-span-2 overflow-hidden rounded-md border border-border bg-surface/70 p-2 backdrop-blur-sm md:col-span-12 md:p-4"
 				>
 					<div className="flex items-center justify-between gap-3">
 						<div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-2.5 py-1 md:px-3 md:py-1.5">

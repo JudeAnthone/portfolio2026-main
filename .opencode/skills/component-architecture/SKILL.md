@@ -35,7 +35,7 @@ src/
 - Static brand images live in `public/brand/` and are referenced as `/brand/...` (NOT imported). Personal gallery photos: `/brand/gallery/...`.
 - Alt text: use descriptive strings (e.g., `Gallery photo 1`), not `photo1`.
 - `experience.ts` splits `current: ExperienceEntry | null` (rendered in About's "Current Internship" row) from `past: ReadonlyArray<ExperienceEntry>` for future entries.
-- `aboutData` no longer has `location`/`availability` fields, and its `stackHighlights` is kept but **unused** — About's "Currently Building" grid reads a component-local `techStack` array (`{ name, subtitle, icon: ReactNode }`).
+- `aboutData` no longer has `location`/`availability` fields, and its `stackHighlights` field has been removed — About's bento grid reads a component-local `techStack` array (`{ name, subtitle, icon: ReactNode, description: string }`), one bento cell per tech with a "how I use it" one-liner.
 
 ## TypeScript Strict Rules (build-enforced)
 

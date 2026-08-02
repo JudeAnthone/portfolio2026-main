@@ -60,4 +60,4 @@
 - All sections use `whileInView` with `viewport={{ once: true }}` for scroll-triggered animations
 - **DotGrid (GSAP canvas) is desktop-only + lazy-loaded**: `DotGridBackground` in `AppShell.tsx` mounts it only when `matchMedia("(min-width: 1024px)")` matches and loads it via `React.lazy` + `Suspense` — no canvas on mobile/tablet, never blocks initial paint
 - **Header nav** renders `sectionRoutes`, then appends a non-route "Resume" download `<li>` — add extra header items there, not in `routes.tsx`
-- **`aboutData` no longer has `location`/`availability` fields**; the "Currently Building" tech grid reads a component-local `techStack` array (`{ name, subtitle, icon: ReactNode }`), not `aboutData.stackHighlights` (field kept but unused)
+- **`aboutData` no longer has `location`/`availability` fields**; the About bento grid reads a component-local `techStack` array (`{ name, subtitle, icon: ReactNode, description: string }`) — one bento cell per tech, each with a short "how I use it" one-liner

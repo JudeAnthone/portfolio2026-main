@@ -96,9 +96,6 @@ const StickyProfileCard = () => {
 						>
 							Jude Duarte
 						</h2>
-						<p className="truncate text-[11px] font-normal leading-relaxed text-muted sm:text-xs">
-							CS student building modern web applications.
-						</p>
 
 						<ul className="mt-1.5 flex items-center gap-1.5">
 							{socials.map((item) => (

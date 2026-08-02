@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 import { motion } from "framer-motion";
 import { sectionRoutes, type SectionId } from "../../app/routes";
 
@@ -43,9 +42,9 @@ const Header = () => {
 			<div className="mx-auto w-full max-w-7xl px-3 md:px-6">
 				<nav
 					aria-label="Primary navigation"
-					className="mx-auto w-full max-w-md rounded-t-2xl border-x border-t border-border bg-surface/90 px-2 py-3 backdrop-blur-xl md:max-w-xl md:rounded-full md:border md:px-3 md:py-2 md:bg-surface/70 md:shadow-lg md:shadow-black/30"
+					className="mx-auto w-full max-w-lg rounded-t-2xl border-x border-t border-border bg-surface/90 px-2 py-3 backdrop-blur-xl md:max-w-2xl md:rounded-full md:border md:px-3 md:py-2 md:bg-surface/70 md:shadow-lg md:shadow-black/30"
 				>
-					<ul className="flex items-center justify-center gap-1 md:gap-2">
+					<ul className="flex items-center justify-center gap-0.5 md:gap-1">
 						{sectionRoutes.map((route) => {
 							const isActive = activeSection === route.id;
 
@@ -66,17 +65,16 @@ const Header = () => {
 								</li>
 							);
 						})}
-						<li key="resume">
-							<a
-								href="/resume/JUDE-CV-READY.2.pdf"
-								download="Jude-Duarte-Resume.pdf"
-								aria-label="Download resume"
-								className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-[10px] font-medium uppercase tracking-[0.1em] text-muted transition-colors hover:text-foreground md:px-4 md:py-2 md:text-sm md:tracking-[0.14em]"
-							>
-								<DownloadRoundedIcon className="text-xs md:text-sm" />
-								Resume
-							</a>
-						</li>
+					<li key="resume">
+						<a
+							href="/resume/JUDE-CV-READY.2.pdf"
+							download="Jude-Duarte-Resume.pdf"
+							aria-label="Download resume"
+							className="rounded-full px-2 py-1.5 text-[10px] font-medium uppercase tracking-[0.1em] text-muted transition-colors hover:text-foreground md:px-4 md:py-2 md:text-sm md:tracking-[0.14em]"
+						>
+							Resume
+						</a>
+					</li>
 					</ul>
 				</nav>
 			</div>

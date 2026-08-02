@@ -115,7 +115,7 @@ const Hero = () => {
 				variants={itemVariants}
 				className="mt-4 max-w-sm px-4 text-xs leading-relaxed text-muted sm:max-w-lg sm:text-sm md:mt-6 md:text-base"
 			>
-				4th Year Computer Science student and Fullstack Software Developer specializing in
+				Student Fullstack Software Developer specializing in
 				building practical, real-world applications with modern web technologies.
 			</motion.p>
 
