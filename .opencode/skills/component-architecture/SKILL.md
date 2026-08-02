@@ -36,6 +36,7 @@ src/
 - Alt text: use descriptive strings (e.g., `Gallery photo 1`), not `photo1`.
 - `experience.ts` splits `current: ExperienceEntry | null` (rendered in About's "Current Internship" row) from `past: ReadonlyArray<ExperienceEntry>` for future entries.
 - `aboutData` no longer has `location`/`availability` fields, and its `stackHighlights` field has been removed — About's bento grid reads a component-local `techStack` array (`{ name, subtitle, icon: ReactNode, description: string }`), one bento cell per tech with a "how I use it" one-liner.
+- **About bento composition** (`About.tsx`): outer grid is `grid-cols-2 gap-4 md:grid-cols-12 md:gap-5`. Rows on `md+`: full-width hero narrative card (`md:col-span-12`) → 6 tech cells (`md:col-span-4`) → CTA card (`md:col-span-6`) + 2 metric cells (`md:col-span-3`) → Current Internship + Gallery (`md:col-span-12`). Mobile uses the 2-col grid with `col-span-1` for tech/metric cells and `col-span-2` for full-width cards.
 
 ## TypeScript Strict Rules (build-enforced)
 
