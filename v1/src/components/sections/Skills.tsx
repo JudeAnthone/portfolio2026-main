@@ -1,5 +1,4 @@
-import type { ReactNode } from "react";
-import Tooltip from "@mui/material/Tooltip";
+import { useEffect, useId, useState, type ReactNode } from "react";
 import WebIcon from "@mui/icons-material/Web";
 import DnsIcon from "@mui/icons-material/Dns";
 import StorageIcon from "@mui/icons-material/Storage";
@@ -95,22 +94,68 @@ const skillLogoMap: Record<string, SkillLogoMeta> = {
 };
 
 const logoTileBaseClass =
-	"group inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-surface-2 text-foreground transition duration-200 hover:-translate-y-0.5 hover:bg-surface sm:h-10 sm:w-10 md:h-11 md:w-11 md:rounded-lg";
+	"inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-surface-2 text-foreground transition duration-200 hover:-translate-y-0.5 hover:bg-surface sm:h-10 sm:w-10 md:h-11 md:w-11 md:rounded-lg";
+
+interface SkillTileProps {
+	item: string;
+	Logo: IconType | undefined;
+	logoColor: string;
+	isActive: boolean;
+	onTap: () => void;
+}
+
+const SkillTile = ({ item, Logo, logoColor, isActive, onTap }: SkillTileProps) => {
+	const [hovered, setHovered] = useState(false);
+	const tipId = useId();
+	const show = hovered || isActive;
+
+	return (
+		<div className="relative">
+			<motion.span
+				variants={itemVariants}
+				whileHover={{ y: -2, scale: 1.04 }}
+				onClick={(event) => {
+					event.stopPropagation();
+					onTap();
+				}}
+				onMouseEnter={() => {
+					if (window.matchMedia("(hover: hover)").matches) setHovered(true);
+				}}
+				onMouseLeave={() => setHovered(false)}
+				className={logoTileBaseClass}
+				aria-label={item}
+				aria-describedby={show ? tipId : undefined}
+				style={{ color: logoColor }}
+			>
+				{Logo ? (
+					<Logo className="text-[1.15rem] md:text-[1.25rem]" />
+				) : (
+					<CheckCircleRoundedIcon fontSize="small" />
+				)}
+				<span className="sr-only">{item}</span>
+			</motion.span>
+
+			<div
+				id={tipId}
+				role="tooltip"
+				className={`pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-surface-2 px-2.5 py-1 text-xs font-medium text-foreground shadow-lg transition duration-150 ${
+					show ? "visible opacity-100" : "invisible opacity-0"
+				}`}
+			>
+				{item}
+			</div>
+		</div>
+	);
+};
 
 const Skills = () => {
-	if (!skillsData.length) {
-		return (
-			<article aria-labelledby="skills-title" className="space-y-3">
-				<h2
-					id="skills-title"
-					className="text-2xl font-semibold text-foreground md:text-4xl"
-				>
-					Skills
-				</h2>
-				<p className="text-sm text-muted">No skills available yet.</p>
-			</article>
-		);
-	}
+	const [activeSkill, setActiveSkill] = useState<string | null>(null);
+
+	useEffect(() => {
+		const handleDocumentClick = () => setActiveSkill(null);
+		document.addEventListener("click", handleDocumentClick);
+		return () => document.removeEventListener("click", handleDocumentClick);
+	}, []);
 
 	return (
 		<motion.article
@@ -129,7 +174,6 @@ const Skills = () => {
 					description="Technologies I use to build, ship, and maintain modern web products."
 				/>
 			</motion.div>
-
 
 			<section
 				aria-label="Skill categories"
@@ -150,32 +194,26 @@ const Skills = () => {
 							</h3>
 						</div>
 
-						<ul
-							className="flex flex-wrap gap-1.5 sm:gap-2"
-						>
+						<ul className="flex flex-wrap gap-1.5 sm:gap-2">
 							{category.items.map((item) => {
 								const logoMeta = skillLogoMap[item];
 								const Logo = logoMeta?.icon;
 								const logoColor = logoMeta?.color ?? "#F3F4F4";
+								const skillKey = category.key + "-" + item;
 
 								return (
-									<li key={category.key + "-" + item}>
-										<Tooltip title={item} arrow>
-											<motion.span
-												variants={itemVariants}
-												whileHover={{ y: -2, scale: 1.04 }}
-												className={logoTileBaseClass}
-												aria-label={item}
-												style={{ color: logoColor }}
-											>
-												{Logo ? (
-													<Logo className="text-[1.15rem] md:text-[1.25rem]" />
-												) : (
-													<CheckCircleRoundedIcon fontSize="small" />
-												)}
-												<span className="sr-only">{item}</span>
-											</motion.span>
-										</Tooltip>
+									<li key={skillKey}>
+										<SkillTile
+											item={item}
+											Logo={Logo}
+											logoColor={logoColor}
+											isActive={activeSkill === skillKey}
+											onTap={() => {
+												setActiveSkill((prev) =>
+													prev === skillKey ? null : skillKey,
+												);
+											}}
+										/>
 									</li>
 								);
 							})}
