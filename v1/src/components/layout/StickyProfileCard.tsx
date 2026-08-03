@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
@@ -52,6 +53,21 @@ const cardSocialSx = {
 } as const;
 
 const StickyProfileCard = () => {
+	const [tapped, setTapped] = useState(false);
+	const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+	useEffect(() => {
+		return () => {
+			if (timeoutRef.current) clearTimeout(timeoutRef.current);
+		};
+	}, []);
+
+	const handleTap = () => {
+		if (timeoutRef.current) clearTimeout(timeoutRef.current);
+		setTapped(true);
+		timeoutRef.current = setTimeout(() => setTapped(false), 1200);
+	};
+
 	return (
 		<>
 		{/* MOBILE */}
@@ -66,7 +82,9 @@ const StickyProfileCard = () => {
 						transition: { staggerChildren: 0.1, delayChildren: 0.05 },
 					},
 				}}
-				className="relative mx-4 overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] lg:hidden"
+				whileTap={{ scale: 0.98 }}
+				onTap={handleTap}
+				className="card-mobile-glow relative mx-4 overflow-hidden rounded-2xl bg-white/10 backdrop-blur-xl lg:hidden"
 			>
 				<motion.div
 					variants={itemVariants}
@@ -75,11 +93,13 @@ const StickyProfileCard = () => {
 					<motion.img
 						src="/brand/card-img5.jpg"
 						alt="Profile artwork"
-						whileTap={{ scale: 0.98 }}
-						className="h-65 w-full object-cover object-top transition duration-500 ease-out group-hover:brightness-75 sm:h-64"
-						transition={{ duration: 0.5 }}
+						className="h-60 w-full object-cover object-top transition duration-500 ease-out group-hover:brightness-75 sm:h-64"
 					/>
 					<div className="card-image-overlay pointer-events-none absolute inset-0" />
+					<div
+						className={`card-tap-flash pointer-events-none absolute inset-0 transition-opacity duration-500 ${tapped ? "opacity-100" : "opacity-0"}`}
+						aria-hidden="true"
+					/>
 
 					<div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 sm:p-4">
 						<div className="card-detail-chip mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full">
@@ -156,7 +176,7 @@ const StickyProfileCard = () => {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-				className="relative hidden overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] md:p-6 lg:block"
+				className="relative hidden overflow-hidden rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] md:p-6 lg:block"
 			>
 				<div className="relative z-10 space-y-4 md:space-y-5">
 					<div className="rounded-2xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">

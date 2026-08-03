@@ -146,6 +146,19 @@
         color: var(--color-foreground);
         backdrop-filter: blur(6px);
     }
+
+    .card-tap-flash {
+        background: radial-gradient(
+            ellipse 120% 60% at 50% 22%,
+            rgba(82, 39, 255, 0.4) 0%,
+            rgba(82, 39, 255, 0.12) 45%,
+            transparent 70%
+        );
+    }
+
+    .card-mobile-glow {
+        animation: card-glow-pulse 4.5s ease-in-out infinite;
+    }
 }
 
 @keyframes card-float-in {
@@ -156,6 +169,20 @@
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes card-glow-pulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 22px -12px rgba(82, 39, 255, 0.4),
+            0 24px 70px -28px rgba(0, 0, 0, 0.65);
+    }
+    50% {
+        box-shadow:
+            0 0 40px -4px rgba(82, 39, 255, 0.6),
+            0 24px 70px -28px rgba(0, 0, 0, 0.65);
     }
 }
 

@@ -85,7 +85,7 @@ const Projects = () => {
 					id="projects-title"
 					tag="/03 Projects"
 					lines={["Featured", "Works."]}
-					description="Selected builds that represent my current engineering and product approach."
+					description="Selected builds that represent my current engineering and product approach. Click on the cards to view more details."
 				/>
 			</motion.div>
 
