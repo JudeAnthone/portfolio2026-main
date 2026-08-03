@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { ReactNode } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
@@ -6,8 +5,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
-import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import { motion } from "framer-motion";
+import { itemVariants } from "../../lib/animations";
 
 interface CardSocial {
 	label: string;
@@ -53,40 +52,61 @@ const cardSocialSx = {
 } as const;
 
 const StickyProfileCard = () => {
-	const [showDetails, setShowDetails] = useState(false);
-
-	const toggleDetails = () => setShowDetails((prev) => !prev);
-
 	return (
 		<>
+		{/* MOBILE */}
 			<motion.article
 				aria-label="Profile card"
-				initial={{ opacity: 0, y: 12 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-				className="relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] lg:hidden"
+				initial="hidden"
+				animate="show"
+				variants={{
+					hidden: { opacity: 0 },
+					show: {
+						opacity: 1,
+						transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+					},
+				}}
+				className="relative mx-4 overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_24px_70px_-28px_rgba(0,0,0,0.65)] lg:hidden"
 			>
-				<div className="flex items-center gap-3 p-3">
-					<button
-						type="button"
-						onClick={toggleDetails}
-						aria-expanded={showDetails}
-						aria-controls="profile-details-mobile"
-						aria-label="Toggle education details"
-						className="group relative shrink-0 rounded-full"
-					>
-						<motion.img
-							src="/brand/card-img5.jpg"
-							alt="Profile artwork"
-							whileTap={{ scale: 0.94 }}
-							className="h-16 w-16 rounded-full border border-white/20 object-cover object-top transition duration-300 group-hover:brightness-75 sm:h-20 sm:w-20"
-						/>
-						<div className="card-image-overlay pointer-events-none absolute inset-0 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-					</button>
+				<motion.div
+					variants={itemVariants}
+					className="group relative overflow-hidden rounded-xl bg-card-image-gradient"
+				>
+					<motion.img
+						src="/brand/card-img5.jpg"
+						alt="Profile artwork"
+						whileTap={{ scale: 0.98 }}
+						className="h-65 w-full object-cover object-top transition duration-500 ease-out group-hover:brightness-75 sm:h-64"
+						transition={{ duration: 0.5 }}
+					/>
+					<div className="card-image-overlay pointer-events-none absolute inset-0" />
 
-					<div className="min-w-0 flex-1">
+					<div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 sm:p-4">
+						<div className="card-detail-chip mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full">
+							<SchoolRoundedIcon fontSize="small" />
+						</div>
+						<h3 className="text-base font-semibold leading-tight text-foreground sm:text-lg">
+							Iskolar ng Bayan
+						</h3>
+						<p className="mt-0.5 text-sm font-medium text-foreground sm:text-base">
+							B.S. Computer Science
+						</p>
+						<p className="card-detail-chip mt-2 inline-flex rounded-md px-2 py-0.5 text-[11px] font-medium">
+							2023 - 2027
+						</p>
+						<p className="mt-1.5 line-clamp-2 text-[11px] font-normal leading-snug text-foreground/90 sm:text-xs">
+							Eulogio "Amang" Rodriguez Institute of Science and Technology
+						</p>
+					</div>
+				</motion.div>
+
+				<motion.div
+					variants={itemVariants}
+					className="space-y-4 px-4 pb-5 pt-4 sm:space-y-5 sm:px-5 sm:pb-6 sm:pt-5"
+				>
+					<div className="space-y-1">
 						<h2
-							className="truncate text-lg font-black leading-tight tracking-tight sm:text-xl"
+							className="text-center text-xl font-black leading-[1.1] tracking-tight sm:text-2xl"
 							style={{
 								background: "linear-gradient(90deg, #f3f4f4, #5227FF, #f3f4f4)",
 								WebkitBackgroundClip: "text",
@@ -96,70 +116,41 @@ const StickyProfileCard = () => {
 						>
 							Jude Duarte
 						</h2>
-
-						<ul className="mt-1.5 flex items-center gap-1.5">
-							{socials.map((item) => (
-								<li key={item.label}>
-									<Tooltip title={item.label}>
-										<motion.div
-											initial={{ opacity: 0, scale: 0 }}
-											animate={{ opacity: 1, scale: 1 }}
-											transition={{ duration: 0.3 }}
-										>
-											<IconButton
-												component="a"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer"
-												aria-label={item.label}
-												size="small"
-												sx={cardSocialSx}
-											>
-												{item.icon}
-											</IconButton>
-										</motion.div>
-									</Tooltip>
-								</li>
-							))}
-						</ul>
-					</div>
-
-					<button
-						type="button"
-						onClick={toggleDetails}
-						aria-expanded={showDetails}
-						aria-label="Toggle education details"
-						className="card-detail-chip flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300"
-						style={showDetails ? { transform: "rotate(180deg)" } : undefined}
-					>
-						<ExpandMoreRoundedIcon fontSize="small" />
-					</button>
-				</div>
-
-				{showDetails ? (
-					<div
-						id="profile-details-mobile"
-						className="border-t border-white/15 px-3 pb-3 pt-2.5 sm:px-4"
-					>
-						<div className="card-detail-chip mb-1.5 inline-flex h-8 w-8 items-center justify-center rounded-full">
-							<SchoolRoundedIcon fontSize="small" />
-						</div>
-						<h3 className="text-base font-semibold leading-tight text-foreground sm:text-lg">
-							Iskolar ng Bayan
-						</h3>
-						<p className="mt-0.5 text-sm font-medium text-foreground sm:text-base">
-							B.S. Computer Science
-						</p>
-						<p className="card-detail-chip mt-1.5 inline-flex rounded-md px-2 py-0.5 text-[11px] font-medium">
-							2023 - 2027
-						</p>
-						<p className="mt-1.5 text-[11px] font-normal text-foreground/90 sm:text-xs">
-							Eulogio "Amang" Rodriguez Institute of Science and Technology
+						<p className="mx-auto max-w-[30ch] text-center text-xs font-normal leading-relaxed text-muted sm:text-sm">
+							Welcome to my Portfolio! A digitized short description about me.  
 						</p>
 					</div>
-				) : null}
+
+					<ul className="flex items-center justify-center gap-3">
+						{socials.map((item) => (
+							<li key={item.label}>
+								<Tooltip title={item.label}>
+									<IconButton
+										component="a"
+										href={item.href}
+										target="_blank"
+										rel="noreferrer"
+										aria-label={item.label}
+										size="medium"
+										sx={{
+											...cardSocialSx,
+											height: 44,
+											width: 44,
+											fontSize: "1.2rem",
+										}}
+									>
+										{item.icon}
+									</IconButton>
+								</Tooltip>
+							</li>
+						))}
+					</ul>
+				</motion.div>
 			</motion.article>
 
+
+
+			{/* DESKTOP*/}
 			<motion.article
 				aria-label="Profile card"
 				initial={{ opacity: 0, y: 20 }}
@@ -213,8 +204,7 @@ const StickyProfileCard = () => {
 							Jude Duarte
 						</h2>
 						<p className="mx-auto max-w-[26ch] text-center text-xs font-normal leading-relaxed text-muted sm:text-sm md:text-base">
-							A Computer Science student building modern, polished, and user-focused web
-							applications.
+							Welcome to my Portfolio! A digitized short description about me.   
 						</p>
 					</div>
 
