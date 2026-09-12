@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-12T00:00:00.000Z",
+  "title": "Design System: Jude Duarte Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Obsidian Black",
+        "canonical": "#0c0c0c",
+        "tonalRamp": ["#080808", "#0a0a0a", "#0c0c0c", "#101010", "#141414", "#181818", "#1c1c1c", "#202020"]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Moonstone",
+        "canonical": "#f3f4f4",
+        "tonalRamp": ["#e8e9e9", "#ebecec", "#eeeeee", "#f0f1f1", "#f3f4f4", "#f5f6f6", "#f8f9f9", "#fbfbfb"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Silver",
+        "canonical": "#bbbbbb",
+        "tonalRamp": ["#999999", "#a3a3a3", "#adadad", "#b4b4b4", "#bbbbbb", "#c2c2c2", "#c9c9c9", "#d0d0d0"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Midnight Navy",
+        "canonical": "#191970",
+        "tonalRamp": ["#0d0d38", "#111148", "#151558", "#171760", "#191970", "#1d1d80", "#212190", "#2525a0"]
+      },
+      "night-start": {
+        "role": "neutral",
+        "displayName": "Deep Ocean",
+        "canonical": "#003153",
+        "tonalRamp": ["#001a2b", "#00243d", "#002e4f", "#003051", "#003153", "#003961", "#00416f", "#00497d"]
+      },
+      "night-end": {
+        "role": "neutral",
+        "displayName": "Deep Night",
+        "canonical": "#1b1b1b",
+        "tonalRamp": ["#0e0e0e", "#121212", "#151515", "#181818", "#1b1b1b", "#1e1e1e", "#212121", "#242424"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "#121216",
+        "tonalRamp": ["#0a0a0c", "#0e0e10", "#101013", "#111115", "#121216", "#151519", "#18181c", "#1b1b1f"]
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Surface-2",
+        "canonical": "#17171c",
+        "tonalRamp": ["#0e0e11", "#111114", "#131317", "#151519", "#17171c", "#1a1a1f", "#1d1d22", "#202025"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "canonical": "#252530",
+        "tonalRamp": ["#181820", "#1c1c25", "#1f1f28", "#22222c", "#252530", "#282835", "#2b2b3a", "#2e2e3f"]
+      },
+      "ring": {
+        "role": "accent",
+        "displayName": "Periwinkle",
+        "canonical": "#4a55d6",
+        "tonalRamp": ["#2a3080", "#343aa0", "#3e44b8", "#444dca", "#4a55d6", "#5560de", "#606be6", "#6b76ee"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only — the largest text on the page." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles rendered through SectionHeader." },
+      "title": { "displayName": "Title", "purpose": "Card titles, modal headings." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs, descriptions, list items. Max ~65ch." },
+      "label": { "displayName": "Label", "purpose": "Chips, badges, section tags. Uppercase, tight tracking." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for all framer-motion/motion transitions." },
+      { "name": "duration-fast", "value": "0.5s", "purpose": "Standard reveal duration for itemVariants, fadeInUp." },
+      { "name": "duration-medium", "value": "0.6s", "purpose": "Slightly longer reveal for fadeInUp (hero, large cards)." },
+      { "name": "stagger", "value": "0.08s", "purpose": "Stagger delay between children in containerVariants." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid Midnight Navy CTA — the only element that uses the accent as a fill.",
+      "html": "<button class=\"ds-btn-primary\">Get in touch</button>",
+      "css": ".ds-btn-primary { background: var(--color-accent); color: var(--color-foreground); padding: 0.5rem 1.5rem; border-radius: 0.75rem; border: none; font-family: 'Geist Pixel', sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: opacity 0.15s; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Border-only button for secondary actions. Transparent background, border at rest.",
+      "html": "<button class=\"ds-btn-outline\">View repo</button>",
+      "css": ".ds-btn-outline { background: transparent; color: var(--color-foreground); padding: 0.5rem 1.5rem; border-radius: 0.75rem; border: 1px solid var(--color-border); font-family: 'Geist Pixel', sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.15s; } .ds-btn-outline:hover { background: var(--color-surface); } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "No background, no border. Appears on hover only. Used for inline actions.",
+      "html": "<button class=\"ds-btn-ghost\">Dismiss</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: var(--color-foreground); padding: 0.5rem 1.5rem; border-radius: 0.75rem; border: none; font-family: 'Geist Pixel', sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.15s; } .ds-btn-ghost:hover { background: var(--color-surface); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Primary card surface. Flat at rest, 1px border, no shadow.",
+      "html": "<div class=\"ds-card\"><h3>Project name</h3><p>Description goes here.</p></div>",
+      "css": ".ds-card { background: var(--color-surface); color: var(--color-foreground); border: 1px solid var(--color-border); border-radius: 1rem; padding: 1rem; }"
+    },
+    {
+      "name": "Card-2",
+      "kind": "card",
+      "refersTo": "card-2",
+      "description": "Secondary card surface for sub-cells and nested content.",
+      "html": "<div class=\"ds-card-2\"><span>Label</span></div>",
+      "css": ".ds-card-2 { background: var(--color-surface-2); color: var(--color-foreground); border: 1px solid var(--color-border); border-radius: 1rem; padding: 1rem; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Frosted pill for badges and labels over images. Semi-transparent + backdrop-blur.",
+      "html": "<span class=\"ds-chip\">React</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(18,18,22,0.55); color: var(--color-foreground); border: 1px solid rgba(37,37,48,0.7); border-radius: 9999px; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; backdrop-filter: blur(6px); }"
+    },
+    {
+      "name": "Nav Pill (Active)",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "Active navigation state. Solid accent background, no gradient.",
+      "html": "<a class=\"ds-nav-pill\" aria-current=\"true\">About</a>",
+      "css": ".ds-nav-pill { display: inline-flex; align-items: center; padding: 0.375rem 1rem; background: var(--color-accent); color: var(--color-foreground); border-radius: 9999px; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: opacity 0.15s; } .ds-nav-pill:hover { opacity: 0.9; } .ds-nav-pill:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Glass Card (Signature)",
+      "kind": "card",
+      "refersTo": "glass-card",
+      "description": "The sole glass accent — frosted surface with backdrop-blur. Used once per view for the most important elevated element.",
+      "html": "<div class=\"ds-glass-card\"><h3>Featured</h3></div>",
+      "css": ".ds-glass-card { background: rgba(18,18,22,0.55); color: var(--color-foreground); border: 1px solid rgba(37,37,48,0.7); border-radius: 1rem; padding: 1.5rem; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Glass Observatory",
+    "overview": "The portfolio is a single, carefully balanced dark surface where visitors come to verify evidence — repos, internship details, resume — not to be dazzled. The design is architectural: every element has a clear spatial reason, and nothing exists for decoration alone. The blue glow is not a wash; it is a deliberate signal, appearing only on hover, focus, and active interaction. Glass — the frosted, semi-transparent surface — is the only material accent, used exactly once per view to draw the eye to the most important element without competing with the work itself.",
+    "keyCharacteristics": [
+      "Dark, flat background with no full-page gradient",
+      "Glass (backdrop-blur + frosted border) as the single material accent",
+      "Blue glow (#4a55d6) reserved exclusively for hover/focus/active states",
+      "Geist Pixel typeface throughout — tight headings, comfortable body text",
+      "Consistent card rhythm: surface / surface-2 cards with 1px border",
+      "Mobile-first responsive, sticky sidebar on lg+"
+    ],
+    "rules": [
+      { "name": "The 10% Accent Rule", "body": "Midnight Navy appears on ≤10% of any given viewport. Its scarcity is the point — it marks the primary action, nothing else.", "section": "colors" },
+      { "name": "The Glow-Only-on-Action Rule", "body": "The blue glow (Periwinkle or Midnight Navy) appears only in response to user interaction — hover, focus, or active tap. It is never a static decorative element.", "section": "colors" },
+      { "name": "The Tight-Headings Rule", "body": "All headings use tracking-tight and line-height: 1.15. No exceptions. Loose headings break the architectural feel.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Every surface is flat at rest. No shadows, no tonal shifts, no gradients appear in the default state. Lift and depth are reserved for interaction moments.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the background flat and dark — no gradient, no tonal shift as visitors scroll.",
+      "Do use glass (backdrop-blur + frosted border) as a single, deliberate accent per view.",
+      "Do reserve blue glow for hover, focus, and active tap only — never idle.",
+      "Do maintain the 10% accent rule — Midnight Navy marks the primary action, nothing else.",
+      "Do use tight headings (tracking-tight, line-height: 1.15) throughout.",
+      "Do keep card backgrounds flat (surface / surface-2) with a 1px border."
+    ],
+    "donts": [
+      "Don't use a full-page gradient as the body background.",
+      "Don't fill CTA buttons or nav pills with a gradient — use solid Midnight Navy.",
+      "Don't show idle glow or pulsing blue effects on any surface.",
+      "Don't use box-shadow as a decorative element — depth is border-based only.",
+      "Don't hardcode hex values in components — reference tokens (var(--color-accent)).",
+      "Don't add decorative elements that don't serve a spatial or interaction purpose."
+    ]
+  }
+}
