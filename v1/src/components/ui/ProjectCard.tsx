@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
@@ -97,6 +97,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 						src={project.imageSrcs[0]}
 						alt={`${project.title} preview`}
 						className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
+						loading="lazy"
+						decoding="async"
 					/>
 					<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
 					<span className="absolute left-3 top-3 rounded-full border border-border bg-surface/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-foreground">

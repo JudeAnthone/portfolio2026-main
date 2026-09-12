@@ -91,7 +91,7 @@ const StickyProfileCard = () => {
 					className="group relative overflow-hidden rounded-xl bg-card-image-gradient"
 				>
 					<motion.img
-						src="/brand/card-img5.jpg"
+						src="/brand/card-img5.webp"
 						alt="Profile artwork"
 						className="h-60 w-full object-cover object-top transition duration-500 ease-out group-hover:brightness-75 sm:h-64"
 					/>
@@ -182,7 +182,7 @@ const StickyProfileCard = () => {
 					<div className="rounded-2xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">
 						<div className="group relative overflow-hidden rounded-2xl bg-card-image-gradient">
 							<motion.img
-								src="/brand/card-img5.jpg"
+								src="/brand/card-img5.webp"
 								alt="Profile artwork"
 								className="mx-auto h-48 w-full object-cover object-top transition duration-500 ease-out group-hover:brightness-75 sm:h-56 md:h-64 md:group-hover:brightness-75"
 								whileHover={{ scale: 1.05 }}

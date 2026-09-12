@@ -5,7 +5,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import { FaGithub } from "react-icons/fa";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { socialsData, type SocialPlatform } from "../../data/socials";
 import { SectionHeader } from "../layout/SectionContainer";
 import { containerVariants, itemVariants } from "../../lib/animations";

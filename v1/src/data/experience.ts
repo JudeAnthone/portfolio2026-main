@@ -22,7 +22,7 @@ export const experienceData: ExperienceData = {
 		role: "Backend AI Engineering Intern",
 		location: "Remote",
 		dateRange: "June 2026 - Present",
-		logoSrc: "/logo/flyrank_logo.jpg",
+		logoSrc: "/logo/flyrank_logo.webp",
 		responsibilities: [
 			{
 				text: "Developed backend applications using TypeScript, Node.js, and Express.js, building RESTful APIs, CRUD operations, and modular backend services.",

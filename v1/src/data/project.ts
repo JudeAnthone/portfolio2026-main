@@ -1,43 +1,43 @@
 // ecs img
-import projectecs1 from "../assets/ecs/ecs1.png";
-import projectecs2 from "../assets/ecs/ecs2.png";
-import projectecs3 from "../assets/ecs/ecs3.png";
-import projectecs4 from "../assets/ecs/ecs4.png";
-import projectecs5 from "../assets/ecs/ecs5.png";
-import projectecs6 from "../assets/ecs/ecs6.png";
-import projectecs7 from "../assets/ecs/ecs7.png";
-import projectecs8 from "../assets/ecs/ecs8.png";
-import projectecs9 from "../assets/ecs/ecs9.png";
+import projectecs1 from "../assets/ecs/ecs1.webp";
+import projectecs2 from "../assets/ecs/ecs2.webp";
+import projectecs3 from "../assets/ecs/ecs3.webp";
+import projectecs4 from "../assets/ecs/ecs4.webp";
+import projectecs5 from "../assets/ecs/ecs5.webp";
+import projectecs6 from "../assets/ecs/ecs6.webp";
+import projectecs7 from "../assets/ecs/ecs7.webp";
+import projectecs8 from "../assets/ecs/ecs8.webp";
+import projectecs9 from "../assets/ecs/ecs9.webp";
 // eacon img
-import projecteacon1 from "../assets/eacon/eacon1.png";
-import projecteacon2 from "../assets/eacon/eacon2.png";
-import projecteacon3 from "../assets/eacon/eacon3.png";
-import projecteacon4 from "../assets/eacon/eacon4.png";
+import projecteacon1 from "../assets/eacon/eacon1.webp";
+import projecteacon2 from "../assets/eacon/eacon2.webp";
+import projecteacon3 from "../assets/eacon/eacon3.webp";
+import projecteacon4 from "../assets/eacon/eacon4.webp";
 // brewcrafter img
-import projectbrewcrafter1 from "../assets/brewcrafter/brew1.png";
-import projectbrewcrafter2 from "../assets/brewcrafter/brew2.png";
-import projectbrewcrafter3 from "../assets/brewcrafter/brew3.png";
-import projectbrewcrafter4 from "../assets/brewcrafter/brew4.png";
-import projectbrewcrafter5 from "../assets/brewcrafter/brew5.png";
-import projectbrewcrafter6 from "../assets/brewcrafter/brew6.png";
-import projectbrewcrafter7 from "../assets/brewcrafter/brew7.png";
-import projectbrewcrafter8 from "../assets/brewcrafter/brew8.png";
-import projectbrewcrafter9 from "../assets/brewcrafter/brew9.png";
-import projectbrewcrafter10 from "../assets/brewcrafter/brew10.png";
+import projectbrewcrafter1 from "../assets/brewcrafter/brew1.webp";
+import projectbrewcrafter2 from "../assets/brewcrafter/brew2.webp";
+import projectbrewcrafter3 from "../assets/brewcrafter/brew3.webp";
+import projectbrewcrafter4 from "../assets/brewcrafter/brew4.webp";
+import projectbrewcrafter5 from "../assets/brewcrafter/brew5.webp";
+import projectbrewcrafter6 from "../assets/brewcrafter/brew6.webp";
+import projectbrewcrafter7 from "../assets/brewcrafter/brew7.webp";
+import projectbrewcrafter8 from "../assets/brewcrafter/brew8.webp";
+import projectbrewcrafter9 from "../assets/brewcrafter/brew9.webp";
+import projectbrewcrafter10 from "../assets/brewcrafter/brew10.webp";
 // lever img
-import projectlever1 from "../assets/lever/lever1.png";
-import projectlever2 from "../assets/lever/lever2.png";
-import projectlever3 from "../assets/lever/lever3.png";
-import projectlever4 from "../assets/lever/lever4.png";
-import projectlever5 from "../assets/lever/lever5.png";
-import projectlever6 from "../assets/lever/lever6.png";
-import projectlever7 from "../assets/lever/lever7.png";
-import projectlever8 from "../assets/lever/lever8.png";
+import projectlever1 from "../assets/lever/lever1.webp";
+import projectlever2 from "../assets/lever/lever2.webp";
+import projectlever3 from "../assets/lever/lever3.webp";
+import projectlever4 from "../assets/lever/lever4.webp";
+import projectlever5 from "../assets/lever/lever5.webp";
+import projectlever6 from "../assets/lever/lever6.webp";
+import projectlever7 from "../assets/lever/lever7.webp";
+import projectlever8 from "../assets/lever/lever8.webp";
 // bbc img
-import projectbbc1 from "../assets/bbc/bbc1.png";
-import projectbbc2 from "../assets/bbc/bbc2.png";
-import projectbbc3 from "../assets/bbc/bbc3.png";
-import projectbbc4 from "../assets/bbc/bbc4.png";
+import projectbbc1 from "../assets/bbc/bbc1.webp";
+import projectbbc2 from "../assets/bbc/bbc2.webp";
+import projectbbc3 from "../assets/bbc/bbc3.webp";
+import projectbbc4 from "../assets/bbc/bbc4.webp";
 
 // portfolio img
 

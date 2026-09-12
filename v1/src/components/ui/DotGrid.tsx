@@ -79,6 +79,10 @@ const DotGrid: React.FC<DotGridProps> = ({
     lastY: 0
   });
 
+  const IDLE_MS = 400;
+  const lastActivityRef = useRef(0);
+  const startLoopRef = useRef<(() => void) | null>(null);
+
   const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
   const activeRgb = useMemo(() => hexToRgb(activeColor), [activeColor]);
 
@@ -132,10 +136,20 @@ const DotGrid: React.FC<DotGridProps> = ({
   useEffect(() => {
     if (!circlePath) return;
 
-    let rafId: number;
+    let rafId: number | null = null;
     const proxSq = proximity * proximity;
 
+    const anyDotDisplaced = () => {
+      for (const dot of dotsRef.current) {
+        if (dot.xOffset !== 0 || dot.yOffset !== 0) return true;
+      }
+      return false;
+    };
+
     const draw = () => {
+      rafId = null;
+      if (typeof document !== 'undefined' && document.hidden) return;
+
       const canvas = canvasRef.current;
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -168,11 +182,25 @@ const DotGrid: React.FC<DotGridProps> = ({
         ctx.restore();
       }
 
+      const idle = performance.now() - lastActivityRef.current > IDLE_MS;
+      if (idle && !anyDotDisplaced()) {
+        return;
+      }
+
       rafId = requestAnimationFrame(draw);
     };
 
+    const startLoop = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(draw);
+    };
+    startLoopRef.current = startLoop;
+
     draw();
-    return () => cancelAnimationFrame(rafId);
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      startLoopRef.current = null;
+    };
   }, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
 
   useEffect(() => {
@@ -193,6 +221,8 @@ const DotGrid: React.FC<DotGridProps> = ({
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       const now = performance.now();
+      lastActivityRef.current = now;
+      startLoopRef.current?.();
       const pr = pointerRef.current;
       const dt = pr.lastTime ? now - pr.lastTime : 16;
       const dx = e.clientX - pr.lastX;
@@ -241,6 +271,8 @@ const DotGrid: React.FC<DotGridProps> = ({
     };
 
     const onClick = (e: MouseEvent) => {
+      lastActivityRef.current = performance.now();
+      startLoopRef.current?.();
       const rect = canvasRef.current!.getBoundingClientRect();
       const cx = e.clientX - rect.left;
       const cy = e.clientY - rect.top;
